@@ -29,7 +29,13 @@ export default class HomeMenuLevel extends Level {
 
         var menu = new UI('homeMenuUI');
         var click = this.assets.getSound('selectSound');
-        menu.addImage();
+        menu.addImage('Logo',{
+            'imgpath' : "assets/scenes/scam-man-fulltitle-mainpage.png",
+            'strech' : BABYLON.GUI.Image.stretch_uniform,
+            'width' : 0.7,
+            'height' : 0.6,
+            'top' : '0px' 
+        });
         menu.addImgButton('playButton', {
             'imgpath' : "assets/scenes/scam-man-play-btn.png",
             'width' : 0.25,

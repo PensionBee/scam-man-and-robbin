@@ -186,6 +186,7 @@ export default class UI {
 
     addText(text, options = {}) {
         let textControl = new BABYLON.GUI.TextBlock();
+        textControl.width = options.width || 0;
         textControl.text = text;
         textControl.color = options.color || 'black';
         textControl.fontSize = options.fontSize || 20;
@@ -205,21 +206,32 @@ export default class UI {
         return textControl;
     }
 
-    addImage() {
-        let img = new BABYLON.GUI.Image("img", "assets/scenes/scam-man-fulltitle-mainpage.png");
+    addImage(name,options = {}) {
+        let img = new BABYLON.GUI.Image(name, options.imgpath);
 
-        // img.width = 0.5;
-        // img.height = '50px';
-        img.strech = BABYLON.GUI.Image.stretch_uniform;
-        img.width = '0.7';
-        img.height = '0.6';
-        img.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
-        img.top = '100'
+        img.thickness = 0;
+        img.strech = options.strech || BABYLON.GUI.Image.stretch_uniform;
+        img.width = options.width || 0.5;
+        img.height = options.height || '60px';
+        img.color = options.color || 'black';
+        img.outlineWidth = options.outlineWidth || 0;
+        img.outlineColor = options.outlineColor || img.color;
+        img.background = options.background || 'transparent';
+        img.horizontalAlignment = (typeof options.horizontalAlignment !== 'undefined') ? options.horizontalAlignment : BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
+        img.verticalAlignment = (typeof options.verticalAlignment !== 'undefined') ? options.verticalAlignment : BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
+        img.left = options.left || '0px';
+        img.right = options.right || '0px';
+        img.top = options.top || '0px';
+        img.textHorizontalAlignment = (typeof options.horizontalAlignment !== 'undefined') ? options.horizontalAlignment : BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
+        img.textVerticalAlignment = (typeof options.verticalAlignment !== 'undefined') ? options.verticalAlignment : BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
 
-        this.menuTexture.addControl(img)
+        this.menuTexture.addControl(img);
+        this.add(img);
+
 
         return img;
     }
+
 
     displayMessage(scamhitted, signal) {
         GAME.pause();

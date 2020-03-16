@@ -124,7 +124,16 @@ export default class RunnerLevel extends Level {
      */
     createMenus() {
         this.menu = new UI('runnerMenuUI');
-
+        // this.lostScreen = new BABYLON.GUI.Image("lostScreen", "assets/scenes/Game_over_screen.png");
+        // this.lostScreen.width = 1;
+        // this.lostScreen.height = 1;
+        // this.menu.menuTexture.addControl(this.lostScreen);
+        // this.lostScreen.isVisible = false;
+        this.lostScreen = this.menu.addImage('lostScreen',{
+            'imgpath':"assets/scenes/Game_over_screen.png",
+            'width' : 0.7,
+            'height' : 0.7
+        });
         this.gameStatus = this.menu.addText('Congratulations!', {
             'top': '60px',
             'color': GAME.options.pointsTextColor,
@@ -290,6 +299,7 @@ export default class RunnerLevel extends Level {
             this.gameStatus.text = 'Congratulations!';
             this.gameSubTextControl.text = 'You successfully avoided the scams and completed level 3!'
         } else {
+            this.lostScreen.isVisible = true;
             this.gameStatus.text = 'You Lost!';
             this.gameSubTextControl.text = 'Play again and see if you can avoid the scams to reach level 3!'
         }

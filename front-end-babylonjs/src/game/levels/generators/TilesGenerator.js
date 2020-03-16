@@ -28,7 +28,7 @@ export default class TilesGenerator {
         // coinMaterial.specularColor = new BABYLON.Color3.Yellow();
 
         let coinMaterial = new BABYLON.StandardMaterial("coinMaterial", this.scene);
-        coinMaterial.diffuseTexture = new BABYLON.Texture("assets/scenes/Coins.png", this.scene);
+        coinMaterial.diffuseTexture = new BABYLON.Texture("assets/scenes/jmanassets/coin.png", this.scene);
         coinMaterial.diffuseTexture.hasAlpha = true;
         coinMaterial.backFaceCulling = true;
 
@@ -79,7 +79,7 @@ export default class TilesGenerator {
         coins.position.x = positionX;
         coins.position.y = 3;
         coins.position.z = 0;
-        coins.rotation.x = 1.5;
+        coins.rotation.x = -1.5;
 
         coins.animations.push(this.createCoinAnimation());
         let coinAnimation = this.scene.beginAnimation(coins, 0, 2000, false);
