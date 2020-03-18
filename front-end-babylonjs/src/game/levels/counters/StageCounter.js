@@ -49,14 +49,21 @@ export default class StageCounter {
         this.scamsImage = [];
         let stageUI = new UI('stageLoadingUI');
 
-        let background = new BABYLON.GUI.Rectangle();
-        background.width = 1;
-        background.height = 1;
-        background.thickness = 0;
-        background.background = "#FFDA75";
-        background.alpha = 1;
-        stageUI.menuTexture.addControl(background);
+        // let background = new BABYLON.GUI.Rectangle();
+        // background.width = 1;
+        // background.height = 1;
+        // background.thickness = 0;
+        // background.background = "#FFDA75";
+        // background.alpha = 1;
+        // stageUI.menuTexture.addControl(background);
 
+        let stageData = stages["stage_" + stage];
+
+        var background = stageUI.addImage('stageScreen',{
+            'imgpath' : stageData.path,
+            'width' : 1,
+            'height' : 1
+        });
         this.stageUI = new BABYLON.GUI.Rectangle();
         this.stageUI.width = 0.9;
         this.stageUI.height = 1;
@@ -64,19 +71,17 @@ export default class StageCounter {
         this.stageUI.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
         stageUI.menuTexture.addControl(this.stageUI);
 
-        let stageData = stages["stage_" + stage];
-
         if (stageData) {
 
-            this.stageStatus = this.addText('Level ' + stage + '…. Loading in ' + timer, {
-                'top': '-180px',
-                'color': GAME.options.pointsTextColor,
-                'outlineColor': GAME.options.pointsOutlineTextColor,
-                'outlineWidth': '2px',
-                'fontSize': '25px',
-                'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER
-            });
-            stageUI.menuTexture.addControl(this.stageStatus);
+            // this.stageStatus = this.addText('Stage ' + stage, {
+            //     'top': '-180px',
+            //     'color': GAME.options.pointsTextColor,
+            //     'outlineColor': GAME.options.pointsOutlineTextColor,
+            //     'outlineWidth': '2px',
+            //     'fontSize': '25px',
+            //     'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER
+            // });
+            // stageUI.menuTexture.addControl(this.stageStatus);
 
             if (stageData['message']) {
                 this.gameSubTextControl = this.addText(stageData['message'], {
@@ -117,11 +122,11 @@ export default class StageCounter {
                         this.scamsImage.forEach(image => {
                             image.dispose();
                         });
-                        background.background = "#F38669";
+                        // background.background = "#F38669";
                         screen = 2;
                         this.player.infoSound.play();
                     } else if (show) {
-                        stageUI.remove(this.stageStatus);
+                        // stageUI.remove(this.stageStatus);
                         this.player.coinsTextControl.isVisible = true;
                         stageUI.clear();
                         if (!this.player.gameEnded) {
@@ -129,7 +134,6 @@ export default class StageCounter {
                             this.player.landPlayer();
                         }
                         show = false;
-                        clearInterval(trigger);
                     }
                 }
             });
@@ -178,37 +182,6 @@ export default class StageCounter {
             }
             this.player.coinsTextControl.isVisible = false;
             stageUI.show();
-
-            let trigger = setInterval(() => {
-                if (show) {
-                    timer = timer - 1;
-                    this.stageStatus.text = 'Level ' + stage + '…. Loading in ' + (!timer && screen === 1 ? 6 : timer);
-                }
-                if (screen === 1 && !timer && stage > 0) {
-                    timer = GAME.options.messageReadTime;
-                    this.setBoons(stageData);
-                    this.scamDescription.dispose();
-                    this.scamsMessage.forEach(scam => {
-                        scam.dispose();
-                    });
-                    this.scamsImage.forEach(image => {
-                        image.dispose();
-                    });
-                    background.background = "#F38669";
-                    screen = 2;
-                    this.player.infoSound.play();
-                } else if (show && timer <= 0) {
-                    stageUI.remove(this.stageStatus);
-                    this.player.coinsTextControl.isVisible = true;
-                    stageUI.clear();
-                    if (!this.player.gameEnded) {
-                        GAME.resume();
-                        this.player.landPlayer();
-                    }
-                    show = false;
-                    clearInterval(trigger);
-                }
-            }, 1000);
         }
     }
 

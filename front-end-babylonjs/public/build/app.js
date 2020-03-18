@@ -93,7 +93,7 @@
 /*! exports provided: message, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"message\":{\"zig_zag\":{\"info\":\"Cold-calling: You respond to someone contacting you out of the blue to move their pension\",\"icon\":\"a phone\",\"reduction\":400,\"path\":\"assets/scenes/jmanassets/cold-call.png\"},\"splitter\":{\"info\":\"Offered withdrawal: Transfer your pension to a scheme because they offer you early access to your pension\",\"icon\":\"a non-standard coloured coin\",\"reduction\":800,\"path\":\"assets/scenes/jmanassets/early-withdrawl.png\"},\"accelerator\":{\"info\":\"‘Free’ financial advice: You engaged with a company because they offered you free financial advice\",\"icon\":\"pound signs with a cross through it\",\"reduction\":300,\"path\":\"assets/scenes/jmanassets/free-advice.png\"},\"black_out\":{\"info\":\"Black out: You engaged with a company because they offered a unique or limited investment opportunity\",\"icon\":\"something unusual\",\"reduction\":500,\"path\":\"assets/scenes/jmanassets/scam.png\"},\"speedy\":{\"info\":\"Time pressure: You agree to something because you are told the offer has a time limit on it\",\"icon\":\" clock\",\"reduction\":600,\"path\":\"assets/scenes/jmanassets/time-pressure.png\"},\"diagonal\":{\"info\":\"Fake Scam Vigilante: Fake scammer vigilantes working on people’s fear of scams to get them to move their pension\",\"icon\":\"mini scam man\",\"reduction\":700,\"path\":\"assets/scenes/jmanassets/fake-vigilant.png\"},\"normal_scam\":{\"info\":\"Normal Scam: High returns with low risk\",\"icon\":\"FCA logo\",\"reduction\":100,\"path\":\"assets/scenes/jmanassets/Cold_call.png\"},\"refuse\":{\"info\":\"Refuse: Check FCA registered - get FCA number\",\"icon\":\"FCA logo\",\"path\":\"assets/scenes/jmanassets/refuse.png\",\"addition\":100},\"pension_wise\":{\"info\":\"Pension Wise: Check FCA registered - get FCA number\",\"icon\":\"FCA logo\",\"path\":\"assets/scenes/jmanassets/Pensionwise.png\",\"addition\":200},\"thinking_about\":{\"info\":\"Thining About: Ask to sleep on your decision/ think about it\",\"icon\":\"FCA logo\",\"path\":\"assets/scenes/jmanassets/think-about-it.png\",\"addition\":300},\"invisiblity_boon\":{\"info\":\"FCA: Check FCA registered - get FCA number\",\"icon\":\"FCA logo\",\"path\":\"assets/scenes/jmanassets/fca.png\",\"addition\":400},\"dont_transfer\":{\"info\":\"Don't transfer: Check with current provider before transferring\",\"icon\":\"FCA logo\",\"path\":\"assets/scenes/jmanassets/dont-transfer.png\",\"addition\":500}}}");
+module.exports = JSON.parse("{\"message\":{\"zig_zag\":{\"info\":\"Fake Scam Vigilante: You believe a scammer is authorised by the FCA\",\"icon\":\"a phone\",\"reduction\":400,\"path\":\"assets/scenes/jmanassets/fake-vigilant.png\"},\"splitter\":{\"info\":\"Offered withdrawal: You’re promised early access to your pension\",\"icon\":\"a non-standard coloured coin\",\"reduction\":800,\"path\":\"assets/scenes/jmanassets/early-withdrawl.png\"},\"accelerator\":{\"info\":\"Free advice: You accept ‘free’ financial advice\",\"icon\":\"pound signs with a cross through it\",\"reduction\":300,\"path\":\"assets/scenes/jmanassets/free-advice.png\"},\"black_out\":{\"info\":\"Black out: You engaged with a company because they offered a unique or limited investment opportunity\",\"icon\":\"something unusual\",\"reduction\":500,\"path\":\"assets/scenes/jmanassets/scam.png\"},\"speedy\":{\"info\":\"Time pressure: You feel pressured to make an immediate decision \",\"icon\":\" clock\",\"reduction\":600,\"path\":\"assets/scenes/jmanassets/time-pressure.png\"},\"diagonal\":{\"info\":\"Cold-calling: You receive a cold call about your pension\",\"icon\":\"mini scam man\",\"reduction\":700,\"path\":\"assets/scenes/jmanassets/cold-call.png\"},\"normal_scam\":{\"info\":\"Scam: High returns with low risk\",\"icon\":\"FCA logo\",\"reduction\":100,\"path\":\"assets/scenes/jmanassets/cold-call.png\"},\"normal_boon\":{\"info\":\"Boon: Check FCA registered - get FCA number\",\"icon\":\"FCA logo\",\"reduction\":100,\"path\":\"assets/scenes/jmanassets/refuse.png\"},\"refuse\":{\"info\":\"Refuse: You refuse to discuss your pension with strangers\",\"icon\":\"FCA logo\",\"path\":\"assets/scenes/jmanassets/refuse.png\",\"addition\":100},\"pension_wise\":{\"info\":\"Pension Wise: You get impartial information from Pension Wise\",\"icon\":\"FCA logo\",\"path\":\"assets/scenes/jmanassets/Pensionwise.png\",\"addition\":200},\"thinking_about\":{\"info\":\"Thining About: You take your time and won’t be rushed \",\"icon\":\"FCA logo\",\"path\":\"assets/scenes/jmanassets/think-about-it.png\",\"addition\":300},\"invisiblity_boon\":{\"info\":\"FCA: You check the FCA Register\",\"icon\":\"FCA logo\",\"path\":\"assets/scenes/jmanassets/fca.png\",\"addition\":400},\"dont_transfer\":{\"info\":\"Don't transfer: You refuse to transfer your pension for early withdrawal\",\"icon\":\"FCA logo\",\"path\":\"assets/scenes/jmanassets/dont-transfer.png\",\"addition\":500}}}");
 
 /***/ }),
 
@@ -104,7 +104,7 @@ module.exports = JSON.parse("{\"message\":{\"zig_zag\":{\"info\":\"Cold-calling:
 /*! exports provided: stage_0, stage_1, stage_2, stage_3, default */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"stage_0\":{\"message\":\"Don’t let a scammer steal your pension pot! \",\"instruction\":\"Swipe left and right to move Scam Man, and swipe upwards to activate his torch and shine a light on an incoming scam! Collect as many coins and bonuses as you can, so you can retire happily at the age of 65! \",\"scams\":[\"normal_scam\"],\"boons\":[\"normal_boon\"]},\"stage_1\":{\"scams\":[\"zig_zag\",\"accelerator\"],\"boons\":[\"refuse\",\"pension_wise\"]},\"stage_2\":{\"scams\":[\"speedy\",\"diagonal\"],\"boons\":[\"thinking_about\",\"invisiblity_boon\"]},\"stage_3\":{\"scams\":[\"diagonal\",\"splitter\"],\"boons\":[\"dont_transfer\",\"invisiblity_boon\"]}}");
+module.exports = JSON.parse("{\"stage_0\":{\"message\":\"Don’t let a scammer steal your pension pot! \",\"instruction\":\"Swipe left and right to move Scam Man, and swipe upwards to activate his torch and shine a light on an incoming scam! Collect as many coins and bonuses as you can, so you can retire happily at the age of 65! \",\"scams\":[\"normal_scam\"],\"boons\":[\"normal_boon\"]},\"stage_1\":{\"path\":\"assets/scenes/stage_1.png\",\"scams\":[\"diagonal\",\"accelerator\"],\"boons\":[\"refuse\",\"pension_wise\"]},\"stage_2\":{\"path\":\"assets/scenes/stage_2.png\",\"scams\":[\"speedy\",\"zig_zag\"],\"boons\":[\"thinking_about\",\"invisiblity_boon\"]},\"stage_3\":{\"path\":\"assets/scenes/stage_1.png\",\"scams\":[\"zig_zag\",\"splitter\"],\"boons\":[\"dont_transfer\",\"invisiblity_boon\"]}}");
 
 /***/ }),
 
@@ -121,6 +121,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _base_Log_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./base/Log.js */ "./src/base/Log.js");
 /* harmony import */ var _game_levels_RunnerLevel_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./game/levels/RunnerLevel.js */ "./src/game/levels/RunnerLevel.js");
 /* harmony import */ var _game_levels_HomeMenuLevel_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./game/levels/HomeMenuLevel.js */ "./src/game/levels/HomeMenuLevel.js");
+/* harmony import */ var _game_levels_TutorialLevel_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./game/levels/TutorialLevel.js */ "./src/game/levels/TutorialLevel.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -129,6 +130,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 // Base
  // Game Levels
+
 
 
 
@@ -170,12 +172,13 @@ function () {
      */
 
     this.canvas = document.getElementById("renderCanvas");
-    this.engine = new BABYLON.Engine(this.canvas, true);
+    this.engine = new BABYLON.Engine(this.canvas, false);
     this.currentLevel = null;
     this.currentLevelName = 'HomeMenuLevel';
     this.levels = {
       'HomeMenuLevel': new _game_levels_HomeMenuLevel_js__WEBPACK_IMPORTED_MODULE_2__["default"](),
-      'RunnerLevel': new _game_levels_RunnerLevel_js__WEBPACK_IMPORTED_MODULE_1__["default"]()
+      'RunnerLevel': new _game_levels_RunnerLevel_js__WEBPACK_IMPORTED_MODULE_1__["default"](),
+      'TutorialLevel': new _game_levels_TutorialLevel_js__WEBPACK_IMPORTED_MODULE_3__["default"]()
     };
   }
 
@@ -191,11 +194,19 @@ function () {
     key: "pause",
     value: function pause(autoAction) {
       if (!this.paused && autoAction && this.currentLevel.player) {
-        this.currentLevel.player.coinsTextControl.isVisible = false;
-        this.currentLevel.player.pauseButtonControl.isVisible = false;
-        this.currentLevel.player.soundUnMuteButtonControl.isVisible = false;
-        this.currentLevel.player.soundMuteButtonControl.isVisible = false;
-        this.currentLevel.player.message.pauseScreen(this.currentLevel.player.coins, this.currentLevel.player.scamCount, this.currentLevel.player.boonCount, this.currentLevel.scams ? this.currentLevel.scams.scamSet : null);
+        // this.currentLevel.player.groundImg.isVisible = false;
+        // this.currentLevel.player.coinsTextControl.isVisible = false;
+        // this.currentLevel.player.pauseButtonControl.isVisible = false;
+        // this.currentLevel.player.soundUnMuteButtonControl.isVisible = false;
+        // this.currentLevel.player.soundMuteButtonControl.isVisible = false;
+        // this.currentLevel.player.message.pauseScreen(this.currentLevel.player.coins,this.currentLevel.player.scamCount,this.currentLevel.player.boonCount,this.currentLevel.scams ? this.currentLevel.scams.scamSet : null)
+        GAME.pause();
+        this.currentLevel.player.pausedImage.isVisible = true;
+        this.currentLevel.player.resumeButton.isVisible = true;
+
+        if (this.currentLevel.player.skipControl) {
+          this.currentLevel.player.skipControl.isVisible = false;
+        }
       }
 
       this.paused = true;
@@ -582,7 +593,7 @@ function () {
 
       this.scene = new BABYLON.Scene(GAME.engine);
 
-      if (GAME.currentLevelName === 'RunnerLevel') {
+      if (GAME.currentLevelName === 'RunnerLevel' || GAME.currentLevelName === 'TutorialLevel') {
         // To change bg image based on device
         var imgPath = "/assets/scenes/game_bg.png";
 
@@ -841,6 +852,7 @@ function () {
       imgbutton.horizontalAlignment = typeof options.horizontalAlignment !== 'undefined' ? options.horizontalAlignment : BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
       imgbutton.verticalAlignment = typeof options.verticalAlignment !== 'undefined' ? options.verticalAlignment : BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
       imgbutton.left = options.left || '0px';
+      imgbutton.isVisible = options.isVisible || true;
       imgbutton.right = options.right || '0px';
       imgbutton.top = options.top || '20px';
       imgbutton.textHorizontalAlignment = typeof options.horizontalAlignment !== 'undefined' ? options.horizontalAlignment : BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
@@ -944,7 +956,7 @@ function () {
       } else {
         var info = new BABYLON.GUI.TextBlock("CASUAL", "You haven't hit any scams");
         info.color = 'red';
-        info.fontSize = "30em"; // info.paddingBottom = '150px';
+        info.fontSize = "28em"; // info.paddingBottom = '150px';
 
         screen.addControl(info);
       }
@@ -970,13 +982,13 @@ function () {
     value: function addText(text) {
       var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       var textControl = new BABYLON.GUI.TextBlock();
-      textControl.width = options.width || 0;
+      textControl.width = options.width || 1;
       textControl.text = text;
       textControl.color = options.color || 'black';
       textControl.fontSize = options.fontSize || 20;
       textControl.outlineWidth = options.outlineWidth || 0;
       textControl.outlineColor = options.outlineColor || "black";
-      textControl.lineSpacing = options.lineSpacing || '5px';
+      textControl.lineSpacing = options.lineSpacing || '0px';
       textControl.left = options.left || '0px';
       textControl.paddingRight = options.paddingRight || '0px';
       textControl.top = options.top || '0px';
@@ -998,15 +1010,16 @@ function () {
       img.height = options.height || '60px';
       img.color = options.color || 'black';
       img.outlineWidth = options.outlineWidth || 0;
-      img.outlineColor = options.outlineColor || img.color;
+      img.outlineColor = options.outlineColor || img.color; // img.isVisible = options.isVisible || true ;
+
       img.background = options.background || 'transparent';
       img.horizontalAlignment = typeof options.horizontalAlignment !== 'undefined' ? options.horizontalAlignment : BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
       img.verticalAlignment = typeof options.verticalAlignment !== 'undefined' ? options.verticalAlignment : BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
       img.left = options.left || '0px';
       img.right = options.right || '0px';
-      img.top = options.top || '0px';
-      img.textHorizontalAlignment = typeof options.horizontalAlignment !== 'undefined' ? options.horizontalAlignment : BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
-      img.textVerticalAlignment = typeof options.verticalAlignment !== 'undefined' ? options.verticalAlignment : BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
+      img.top = options.top || '0px'; // img.textHorizontalAlignment = (typeof options.horizontalAlignment !== 'undefined') ? options.horizontalAlignment : BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
+      // img.textVerticalAlignment = (typeof options.verticalAlignment !== 'undefined') ? options.verticalAlignment : BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
+
       this.menuTexture.addControl(img);
       this.add(img);
       return img;
@@ -1211,12 +1224,13 @@ function () {
         depth: 0.01
       }, this.scene);
       this.groundMesh.position = new BABYLON.Vector3(0, -2.7, 0);
+      this.groundMesh.isVisible = false;
       this.spriteManagerPlayer = [];
       this.spriteManagerPlayer['left'] = new BABYLON.SpriteManager("playerManager", "assets/scenes/scamman_walk_left.png", 1, 62, this.scene);
       this.spriteManagerPlayer['right'] = new BABYLON.SpriteManager("playerManager", "assets/scenes/scamman_walk_right.png", 1, 62, this.scene);
       this.spriteManagerPlayer['up'] = new BABYLON.SpriteManager("playerManager", "assets/scenes/scamman_attack.png", 1, {
         width: 41,
-        height: 63
+        height: 62
       }, this.scene);
       this.spriteManagerPlayer['land'] = new BABYLON.SpriteManager("playerManager", "assets/scenes/scamman_land.png", 1, {
         width: 118,
@@ -1224,7 +1238,11 @@ function () {
       }, this.scene);
       this.spriteManagerPlayer['lose'] = new BABYLON.SpriteManager("playerManager", "assets/scenes/scam man_lose.png", 1, {
         width: 38,
-        height: 48
+        height: 62
+      }, this.scene);
+      this.spriteManagerPlayer['win'] = new BABYLON.SpriteManager("playerManager", "assets/scenes/scam man_win.png", 1, {
+        width: 66,
+        height: 62
       }, this.scene);
       this.createHUD();
     }
@@ -1240,53 +1258,119 @@ function () {
       this.hud = new _base_UI__WEBPACK_IMPORTED_MODULE_0__["default"]('playerHudUI');
       this.coinsTextControl = null;
       this.pauseButtonControl = null;
-      this.coinsTextControl = this.hud.addText('Pension Pot: £0', {
-        'top': '-10px',
-        'left': '-10px',
-        'fontSize': '15px',
+      this.groundImg = this.hud.addImage('groundImage', {
+        'imgpath': "assets/scenes/ground_image.png",
+        'width': 1,
+        'isVisible': true,
+        'height': 0.07,
+        'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM
+      });
+      this.potImg = this.hud.addImage('potImage', {
+        'imgpath': "assets/scenes/pot.png",
+        "width": 0.07,
+        "height": 0.05,
+        'top': GAME.isMobile() ? '-32px' : '-42px',
         'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
         'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM
       });
-      this.pauseButtonControl = this.hud.addButton('Pause', 'PAUSE', {
-        'width': GAME.isMobile() ? 0.15 : 0.1,
-        'height': 0.05,
-        'top': '-10px',
-        'left': '-10px',
+      this.moneyBar = this.hud.addImage('moneyBar', {
+        'imgpath': "assets/scenes/moneybar.png",
+        "width": 0.4,
+        "height": 0.03,
+        'top': '-6px',
+        'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
+        'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM
+      });
+      this.coinsTextControl = this.hud.addText('£ 0', {
+        'top': '-7px',
+        'left': '-5px',
+        'fontSize': '15px',
+        'color': '#FFFF99',
+        'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
+        'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM
+      });
+
+      if (GAME.currentLevelName == 'TutorialLevel') {
+        this.coinsTextControl.isVisible = false;
+        this.moneyBar.isVisible = false;
+        this.potImg.isVisible = false;
+        this.skipControl = this.hud.addImgButton('continueBtn', {
+          'imgpath': "assets/scenes/scam-man-continue-btn.png",
+          'top': '-5px',
+          'width': 0.25,
+          'height': '50px',
+          'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
+          'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,
+          'onclick': function onclick() {
+            _this.gameEnded = true;
+            GAME.goToLevel('RunnerLevel');
+          }
+        });
+      }
+
+      this.pauseButtonControl = this.hud.addImgButton('PAUSE', {
+        'imgpath': "assets/scenes/pause.png",
+        // 'width': (GAME.isMobile() ? 0.15 : 0.1),
+        'width': 0.08,
+        'height': 0.06,
+        'top': GAME.isMobile() ? '-15px' : '-20px',
+        'left': '-25px',
         'isVisible': true,
-        'fontSize': '10em',
+        // 'fontSize': '10em',
         'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
         'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,
         'onclick': function onclick() {
-          _this.selectSound.play();
+          _this.selectSound.play(); // this.coinsTextControl.isVisible = false;
+          // this.pauseButtonControl.isVisible = false;
+          // this.soundMuteButtonControl.isVisible = false;
+          // this.soundUnMuteButtonControl.isVisible = false;
+          // this.groundImg.isVisible = false ;
 
-          _this.coinsTextControl.isVisible = false;
+
+          GAME.pause();
+          _this.resumeButton.isVisible = true;
           _this.pauseButtonControl.isVisible = false;
-          _this.soundMuteButtonControl.isVisible = false;
-          _this.soundUnMuteButtonControl.isVisible = false;
+          _this.pausedImage.isVisible = true; // this.message.pauseScreen(this.coins, this.scamCount, this.boonCount, this.level.scams ? this.level.scams.scamSet : null)
+          // this.soundMuteButtonControl.isVisible = false;
+          // this.soundUnMuteButtonControl.isVisible = false;
 
-          _this.message.pauseScreen(_this.coins, _this.scamCount, _this.boonCount, _this.level.scams ? _this.level.scams.scamSet : null);
+          if (_this.skipControl) {
+            _this.skipControl.isVisible = false;
+          }
         }
       });
-      this.soundMuteButtonControl = this.hud.addButton('mute', 'MUTE', {
-        'width': GAME.isMobile() ? 0.15 : 0.1,
-        'height': 0.05,
-        'top': '-10px',
-        'left': '10px',
+      this.pausedImage = this.hud.addImage('PAUSED', {
+        'imgpath': "assets/scenes/PausedScreen.png",
+        // 'width': (GAME.isMobile() ? 0.15 : 0.1),
+        'width': 0.5,
+        'height': 0.1,
+        'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER
+      });
+      this.pausedImage.isVisible = false;
+      this.soundMuteButtonControl = this.hud.addImgButton('MUTE', {
+        'imgpath': "assets/scenes/music_on.png",
+        'width': 0.08,
+        // 'width': (GAME.isMobile() ? 0.15 : 0.1),
+        'height': 0.06,
+        'top': GAME.isMobile() ? '-15px' : '-20px',
+        'left': '25px',
         'isVisible': true,
-        'fontSize': '10em',
+        // 'fontSize': '10em',
         'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
         'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,
         'onclick': function onclick() {
           window.localStorage['mute_sound'] = 1;
         }
       });
-      this.soundUnMuteButtonControl = this.hud.addButton('mute', 'UNMUTE', {
-        'width': GAME.isMobile() ? 0.15 : 0.1,
-        'height': 0.05,
-        'top': '-10px',
-        'left': '10px',
+      this.soundUnMuteButtonControl = this.hud.addImgButton('UNMUTE', {
+        // 'width': (GAME.isMobile() ? 0.15 : 0.1),
+        'imgpath': "assets/scenes/music_off.png",
+        'width': 0.08,
+        'height': 0.06,
+        'top': GAME.isMobile() ? '-15px' : '-20px',
+        'left': '25px',
         'isVisible': true,
-        'fontSize': '10em',
+        // 'fontSize': '10em',
         'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
         'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,
         'onclick': function onclick() {
@@ -1294,6 +1378,22 @@ function () {
           BABYLON.Engine.audioEngine.unlock();
         }
       });
+      this.resumeButton = this.hud.addImgButton('RESUME', {
+        'imgpath': "assets/scenes/Play_Button.png",
+        'width': 0.08,
+        'height': 0.06,
+        'top': GAME.isMobile() ? '-15px' : '-20px',
+        'left': '-25px',
+        'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
+        'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,
+        'onclick': function onclick() {
+          GAME.resume();
+          _this.pausedImage.isVisible = false;
+          _this.resumeButton.isVisible = false;
+          _this.pauseButtonControl.isVisible = true;
+        }
+      });
+      this.resumeButton.isVisible = false;
     }
     /**
     * Function to handle coin counter.
@@ -1307,8 +1407,9 @@ function () {
 
       if (this.lives != 0 && this.allowCoinChange) {
         this.coins += 100;
+        this.coins = GAME.options.maxLifetimeAllowance < this.coins ? GAME.options.maxLifetimeAllowance : this.coins;
         this.gotCoinSound.play();
-        this.coinsTextControl.text = 'Pension Pot: £' + this.coins;
+        this.coinsTextControl.text = '£ ' + this.coins;
         this.coinsTextControl.fontSize = '15px';
         setTimeout(function () {
           _this2.coinsTextControl.fontSize = '15px';
@@ -1331,7 +1432,7 @@ function () {
 
       if (this.coins <= 1) {
         this.coins = 0;
-        this.coinsTextControl.text = 'Pension Pot: £' + this.coins;
+        this.coinsTextControl.text = '£ ' + this.coins;
         this.coinsTextControl.fontSize = '15px';
         this.allowCoinChange = false;
 
@@ -1349,14 +1450,14 @@ function () {
           _this3.coins -= factor;
 
           if (_this3.coins > newCoins) {
-            _this3.coinsTextControl.text = 'Pension Pot: £' + _this3.coins;
+            _this3.coinsTextControl.text = '£ ' + _this3.coins;
             _this3.coinsTextControl.fontSize = '15px';
             _this3.coinsTextControl.color = 'red';
           } else {
             _this3.allowCoinChange = true;
-            _this3.coinsTextControl.text = 'Pension Pot: £' + _this3.coins;
+            _this3.coinsTextControl.text = '£ ' + _this3.coins;
             _this3.coinsTextControl.fontSize = '15px';
-            _this3.coinsTextControl.color = 'black';
+            _this3.coinsTextControl.color = '#FFFF99';
             _this3.scamming = false;
             clearInterval(trigger);
           }
@@ -1365,7 +1466,7 @@ function () {
             _this3.coins = 0;
             _this3.allowCoinChange = false;
             _this3.scamming = false;
-            _this3.coinsTextControl.text = 'Pension Pot: £' + _this3.coins;
+            _this3.coinsTextControl.text = '£ ' + _this3.coins;
             _this3.coinsTextControl.fontSize = '15px';
             _this3.coinsTextControl.color = 'red';
 
@@ -1397,7 +1498,7 @@ function () {
         this.soundUnMuteButtonControl.isVisible = false;
         this.soundMuteButtonControl.isVisible = true;
         BABYLON.Engine.audioEngine.unlock();
-        BABYLON.Engine.audioEngine.setGlobalVolume(80);
+        BABYLON.Engine.audioEngine.setGlobalVolume(20);
       }
     }
     /**
@@ -1509,12 +1610,17 @@ function () {
       var _this5 = this;
 
       if (GAME.keys.shoot && !this.beamEnabled && this.changePosition && !this.gameEnded && !this.playerLanding) {
-        var bullet = BABYLON.Mesh.CreateCylinder("bullet_" + this.bullerCounter++, 3, 1, 0.05, 0, 0, this.scene); // scams.position = this.mesh.getAbsolutePosition().clone();
+        if (this.bullet) {
+          this.bullet.isVisible = false;
+        }
+
+        this.bullet = BABYLON.Mesh.CreateCylinder("bullet_" + this.bullerCounter++, 3, 1, 0.05, 0, 0, this.scene); // scams.position = this.mesh.getAbsolutePosition().clone();
 
         var meshPosition = this.mesh.getAbsolutePosition().clone();
-        bullet.position.x = meshPosition.x;
-        bullet.position.y = -0.3;
-        bullet.material = this.level.getMaterial('bulletMaterial');
+        this.bullet.position.x = meshPosition.x;
+        this.bullet.position.y = -0.3;
+        this.bullet.material = this.level.getMaterial('bulletMaterial');
+        this.level.light.excludedMeshes.push(this.bullet);
         this.beamEnabled = true;
 
         if (this.shootAction) {
@@ -1536,7 +1642,8 @@ function () {
         }, 24); // Clear bullet after half second
 
         setTimeout(function () {
-          bullet.dispose();
+          _this5.bullet.dispose();
+
           _this5.beamEnabled = false;
 
           _this5.shootAction.dispose();
@@ -1545,7 +1652,8 @@ function () {
         }, 700);
         var trigger = setInterval(function () {
           if (!_this5.changePosition) {
-            bullet.dispose();
+            _this5.bullet.dispose();
+
             _this5.beamEnabled = false;
             clearInterval(trigger);
           }
@@ -1613,23 +1721,27 @@ function () {
 
       var message = _public_message_json__WEBPACK_IMPORTED_MODULE_1__.message;
       var newCoins = Math.floor(this.coins + message[boon].addition);
+      newCoins = newCoins > GAME.options.maxLifetimeAllowance ? GAME.options.maxLifetimeAllowance : newCoins;
       var factor = Math.floor((newCoins - this.coins) / 10);
-      var trigger = setInterval(function () {
-        _this6.coins += factor;
-        _this6.maxCoins = _this6.coins > _this6.maxCoins ? _this6.coins : _this6.maxCoins;
 
-        if (_this6.coins < newCoins && _this6.allowCoinChange) {
-          _this6.coinsTextControl.text = 'Pension Pot: £' + _this6.coins;
-          _this6.coinsTextControl.fontSize = '15px';
-          _this6.coinsTextControl.color = 'green';
-        } else {
-          _this6.coins = _this6.lives > 0 ? newCoins : 0;
-          _this6.coinsTextControl.text = 'Pension Pot: £' + _this6.coins;
-          _this6.coinsTextControl.fontSize = '15px';
-          _this6.coinsTextControl.color = 'black';
-          clearInterval(trigger);
-        }
-      }, 50);
+      if (factor) {
+        var trigger = setInterval(function () {
+          _this6.coins += factor;
+          _this6.maxCoins = _this6.coins > _this6.maxCoins ? _this6.coins : _this6.maxCoins;
+
+          if (_this6.coins < newCoins && _this6.allowCoinChange) {
+            _this6.coinsTextControl.text = '£ ' + _this6.coins;
+            _this6.coinsTextControl.fontSize = '15px';
+            _this6.coinsTextControl.color = 'green';
+          } else {
+            _this6.coins = _this6.lives > 0 ? newCoins : 0;
+            _this6.coinsTextControl.text = '£ ' + _this6.coins;
+            _this6.coinsTextControl.fontSize = '15px';
+            _this6.coinsTextControl.color = '#FFFF99';
+            clearInterval(trigger);
+          }
+        }, 50);
+      }
     }
     /**
      * Function to update highest score of player in this machine.
@@ -1679,7 +1791,7 @@ function () {
       this.scamCount = 0;
       this.boonCount = 0;
       this.lives = GAME.options.player.lives;
-      this.coinsTextControl.text = 'Pension Pot: £' + this.coins;
+      this.coinsTextControl.text = '£ ' + this.coins;
       this.allowCoinChange = true;
       this.pauseButtonControl.isVisible = true;
     }
@@ -1693,12 +1805,13 @@ function () {
       this.landAction = new BABYLON.Sprite("land", this.spriteManagerPlayer['land']);
       this.landAction.position = new BABYLON.Vector3(0.1, -1.2, 0);
       this.landAction.playAnimation(0, 11, false, 80, function () {
+        _this7.mesh.material.alpha = 1;
         _this7.playerLanding = false;
         _this7.level.freezeGeneration = false;
 
         _this7.landAction.dispose();
       });
-      this.landAction.size = 3;
+      this.landAction.size = 3.05;
       this.landAction.isPickable = true;
       this.mesh.position.x = 0;
     }
@@ -1767,8 +1880,12 @@ function (_Level) {
     * Function to setup musics and sound assets
     */
     value: function setupAssets() {
-      this.assets.addMusic('music', '/assets/musics/SCAM_MAN_background2.mp3');
+      this.assets.addMusic('music', '/assets/musics/SCAM_MAN_background2.wav');
       this.assets.addSound('selectSound', '/assets/sounds/Select_sound.wav');
+      this.assets.addSound('splashScreenSound', '/assets/sounds/Winning_Sound.wav', {
+        volume: 0.01,
+        autoplay: true
+      });
     }
     /**
     * Function to set scene with camera and start/play button.
@@ -1787,15 +1904,16 @@ function (_Level) {
         'strech': BABYLON.GUI.Image.stretch_uniform,
         'width': 0.7,
         'height': 0.6,
-        'top': '0px'
+        'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP,
+        'top': '100px'
       });
       menu.addImgButton('playButton', {
-        'imgpath': "assets/scenes/scam-man-play-btn.png",
+        'imgpath': "assets/scenes/Start_button.png",
         'width': 0.25,
         'top': '210px',
         'onclick': function onclick() {
           click.play();
-          GAME.goToLevel('RunnerLevel');
+          GAME.goToLevel('TutorialLevel');
         }
       });
     }
@@ -1896,20 +2014,39 @@ function (_Level) {
     value: function setupAssets() {
       // Dummy Sounds for Time Being. Needs changing (Or requires providing credits)
       this.assets.addMusic('music', '/assets/musics/SCAM_MAN_background2.wav', {
+        volume: 0.001,
         autoplay: true
       });
-      this.assets.addSound('gameLostSound', '/assets/sounds/game-lost.wav');
-      this.assets.addSound('gotCoinSound', '/assets/sounds/coin_going_into_pot.wav');
-      this.assets.addSound('beginGameSound', '/assets/sounds/begin_game.wav');
-      this.assets.addSound('infoSound', '/assets/sounds/info.wav');
-      this.assets.addSound('damageSound', '/assets/sounds/scammed.wav');
-      this.assets.addSound('movementSound', '/assets/sounds/movement.wav');
-      this.assets.addSound('zappingSound', '/assets/sounds/Zapping_Scam.wav', {
-        volume: 0.2
+      this.assets.addSound('gameLostSound', '/assets/sounds/game-lost.wav', {
+        volume: 0.01
       });
-      this.assets.addSound('winningSound', '/assets/sounds/Winning_Sound.wav');
-      this.assets.addSound('splashScreenSound', '/assets/sounds/Winning_Sound.wav');
-      this.assets.addSound('selectSound', '/assets/sounds/Select_sound.wav');
+      this.assets.addSound('gotCoinSound', '/assets/sounds/coin_going_into_pot.wav', {
+        volume: 0.005
+      });
+      this.assets.addSound('beginGameSound', '/assets/sounds/begin_game.wav', {
+        volume: 0.005
+      });
+      this.assets.addSound('infoSound', '/assets/sounds/info.wav', {
+        volume: 0.003
+      });
+      this.assets.addSound('damageSound', '/assets/sounds/scammed.wav', {
+        volume: 0.01
+      });
+      this.assets.addSound('movementSound', '/assets/sounds/movement.wav', {
+        volume: 0.007
+      });
+      this.assets.addSound('zappingSound', '/assets/sounds/Zapping_Scam.wav', {
+        volume: 0.0025
+      });
+      this.assets.addSound('winningSound', '/assets/sounds/Winning_Sound.wav', {
+        volume: 0.01
+      });
+      this.assets.addSound('splashScreenSound', '/assets/sounds/Winning_Sound.wav', {
+        volume: 0.01
+      });
+      this.assets.addSound('selectSound', '/assets/sounds/Select_sound.wav', {
+        volume: 0.005
+      });
     }
     /**
      * Function to set scene with camera, player.
@@ -1934,10 +2071,10 @@ function (_Level) {
       // var light1 = new BABYLON.DirectionalLight("light1", new BABYLON.Vector3(1, -1, 1), this.scene);
       //Light direction is directly down from a position one unit up, fast decay
 
-      this.light = new BABYLON.SpotLight("spotLight3", new BABYLON.Vector3(0, -1, -500), new BABYLON.Vector3(0, 0, 1), Math.PI / 2, 50, this.scene);
-      this.light.diffuse = new BABYLON.Color3(1, 1, 1);
-      this.light.specular = new BABYLON.Color3(1, 1, 1);
-      this.light.intensity = 0.5; //light1.intensity = 1;
+      this.light = new BABYLON.HemisphericLight("HemiLight", new BABYLON.Vector3(0, -1, 0), this.scene);
+      this.light.intensity = 1;
+      this.light.groundColor = new BABYLON.Color3(1, 1, 1);
+      this.light.specular = BABYLON.Color3.Black(); //light1.intensity = 1;
       // light2.intensity = 0.9;
 
       this.createPlayer();
@@ -1976,27 +2113,28 @@ function (_Level) {
     value: function createMenus() {
       var _this2 = this;
 
-      this.menu = new _base_UI__WEBPACK_IMPORTED_MODULE_0__["default"]('runnerMenuUI'); // this.lostScreen = new BABYLON.GUI.Image("lostScreen", "assets/scenes/Game_over_screen.png");
-      // this.lostScreen.width = 1;
-      // this.lostScreen.height = 1;
-      // this.menu.menuTexture.addControl(this.lostScreen);
-      // this.lostScreen.isVisible = false;
-
+      this.menu = new _base_UI__WEBPACK_IMPORTED_MODULE_0__["default"]('runnerMenuUI');
       this.lostScreen = this.menu.addImage('lostScreen', {
         'imgpath': "assets/scenes/Game_over_screen.png",
-        'width': 0.7,
-        'height': 0.7
+        'width': 0.8,
+        'height': 0.8
       });
-      this.gameStatus = this.menu.addText('Congratulations!', {
-        'top': '60px',
-        'color': GAME.options.pointsTextColor,
-        'outlineColor': GAME.options.pointsOutlineTextColor,
-        'outlineWidth': '2px',
-        'fontSize': '40px',
-        'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP
-      });
+      this.winningScreen = this.menu.addImage('winningScreen', {
+        'imgpath': "assets/scenes/winning_screen_1.png",
+        'width': 0.8,
+        'height': 0.8
+      }); // this.gameStatus = this.menu.addText('Congratulations!', {
+      //     'top': '60px',
+      //     'color': GAME.options.pointsTextColor,
+      //     'outlineColor': GAME.options.pointsOutlineTextColor,
+      //     'outlineWidth': '2px',
+      //     'fontSize': '40px',
+      //     'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP
+      // });
+
       this.gameSubTextControl = this.menu.addText('You cannot give up. Try reaching Age 65...', {
-        'top': '105px',
+        'width': 0.5,
+        'top': '155px',
         'color': GAME.options.pointsTextColor,
         'outlineColor': GAME.options.pointsOutlineTextColor,
         'outlineWidth': '2px',
@@ -2004,11 +2142,11 @@ function (_Level) {
         'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP
       });
       this.pointsTextControl = this.menu.addText('Pension Pot: £ 0', {
-        'top': '180px',
+        'top': '220px',
         'color': GAME.options.pointsTextColor,
         'outlineColor': GAME.options.pointsOutlineTextColor,
         'outlineWidth': '2px',
-        'fontSize': '35px',
+        'fontSize': '30px',
         'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP
       }); // this.ageTextControl = this.menu.addText('Age: 0', {
       //     'top': '180px',
@@ -2020,17 +2158,25 @@ function (_Level) {
       // });
 
       this.currentRecordTextControl = this.menu.addText('Current Record: 0', {
-        'top': '220px',
+        'top': '260px',
         'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP
       });
       this.hasMadeRecordTextControl = this.menu.addText('You got a new Points Record!', {
-        'top': '260px',
+        'top': '300px',
         'color': GAME.options.recordTextColor,
         'fontSize': '20px',
         'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP
       });
-      this.menu.addButton('replayButton', 'Replay Game', {
-        'top': '300px',
+      this.lastDisplay = this.menu.addText('lastText', {
+        'top': '460px',
+        'fontSize': '15px',
+        'color': GAME.options.recordTextColor,
+        'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP,
+        'width': 0.5
+      });
+      this.menu.addImgButton('replayButton', {
+        'imgpath': "assets/scenes/Play_again.png",
+        'top': '340px',
         'height': '50px',
         'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP,
         'textVerticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER,
@@ -2040,8 +2186,9 @@ function (_Level) {
           GAME.goToLevel('RunnerLevel');
         }
       });
-      this.menu.addButton('backButton', 'Return to Home', {
-        'top': '360px',
+      this.menu.addImgButton('Return to Home', {
+        'imgpath': "assets/scenes/Home_Button.png",
+        'top': '390px',
         'height': '50px',
         'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP,
         'textVerticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER,
@@ -2049,6 +2196,19 @@ function (_Level) {
           _this2.player.selectSound.play();
 
           GAME.goToLevel('HomeMenuLevel');
+        }
+      });
+      this.menu.addImgButton('Learn more', {
+        'imgpath': "assets/scenes/learnmore.png",
+        'top': '550px',
+        'height': '15px',
+        'width': 0.2,
+        'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP,
+        'textVerticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER,
+        'onclick': function onclick() {
+          _this2.player.selectSound.play();
+
+          window.open('https://www.jmangroup.com/', '_blank');
         }
       });
       this.menu.hide(); // this.createTutorialText();
@@ -2120,6 +2280,8 @@ function (_Level) {
 
           _this4.ageTimer.clear();
 
+          _this4.player.hud.hide();
+
           _this4.player.pauseButtonControl.isVisible = false;
           _this4.player.soundMuteButtonControl.isVisible = false;
           _this4.player.soundUnMuteButtonControl.isVisible = false;
@@ -2133,16 +2295,26 @@ function (_Level) {
 
         _this4.player.winningSound.play();
 
-        GAME.pause();
-        _this4.status = 'WIN';
+        _this4.player.mesh.material.alpha = 0;
+        var player = new BABYLON.Sprite("player", _this4.player.spriteManagerPlayer['win']);
+        player.position = _this4.player.mesh.position;
+        player.position = new BABYLON.Vector3(_this4.player.mesh.position.x + 0.2, _this4.player.mesh.position.y, 0);
+        player.size = 1.2;
+        player.isPickable = true;
+        setTimeout(function () {
+          _this4.player.hud.hide();
 
-        _this4.showMenu();
+          GAME.pause();
+          _this4.status = 'WIN';
 
-        _this4.ageTimer.clear();
+          _this4.showMenu();
 
-        _this4.player.pauseButtonControl.isVisible = false;
-        _this4.player.soundMuteButtonControl.isVisible = false;
-        _this4.player.soundUnMuteButtonControl.isVisible = false;
+          _this4.ageTimer.clear();
+
+          _this4.player.pauseButtonControl.isVisible = false;
+          _this4.player.soundMuteButtonControl.isVisible = false;
+          _this4.player.soundUnMuteButtonControl.isVisible = false;
+        }, 1500);
       };
     }
     /**
@@ -2152,20 +2324,20 @@ function (_Level) {
   }, {
     key: "showMenu",
     value: function showMenu() {
+      this.menu.show();
+      this.lastDisplay.text = "Unfortunately, Scam Man won't be on hand to protect you! So it is important to know how to identify a pension scam.";
       this.pointsTextControl.text = 'Pension Pot: £' + this.player.getPoints(); // this.ageTextControl.text = 'Age: ' + this.age;
 
       this.currentRecordTextControl.text = 'Current Record: ' + this.player.getLastRecord();
 
       if (this.status == 'WIN') {
-        this.gameStatus.text = 'Congratulations!';
+        // this.gameStatus.text = 'Congratulations!';
+        this.lostScreen.isVisible = false;
         this.gameSubTextControl.text = 'You successfully avoided the scams and completed level 3!';
       } else {
-        this.lostScreen.isVisible = true;
-        this.gameStatus.text = 'You Lost!';
-        this.gameSubTextControl.text = 'Play again and see if you can avoid the scams to reach level 3!';
+        this.winningScreen.isVisible = false;
+        this.gameSubTextControl.text = 'You lost! Play again and see if you can avoid the scams to reach level 3!';
       }
-
-      this.menu.show();
 
       if (this.player.hasMadePointsRecord()) {
         this.hasMadeRecordTextControl.isVisible = true;
@@ -2273,6 +2445,375 @@ function (_Level) {
   }]);
 
   return RunnerLevel;
+}(_base_Level__WEBPACK_IMPORTED_MODULE_2__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./src/game/levels/TutorialLevel.js":
+/*!******************************************!*\
+  !*** ./src/game/levels/TutorialLevel.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return TutorialLevel; });
+/* harmony import */ var _base_UI__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../base/UI */ "./src/base/UI.js");
+/* harmony import */ var _Player__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Player */ "./src/game/Player.js");
+/* harmony import */ var _base_Level__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../base/Level */ "./src/base/Level.js");
+/* harmony import */ var _generators_TilesGenerator__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./generators/TilesGenerator */ "./src/game/levels/generators/TilesGenerator.js");
+/* harmony import */ var _generators_ScamsGenerator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./generators/ScamsGenerator */ "./src/game/levels/generators/ScamsGenerator.js");
+/* harmony import */ var _generators_BoonsGenerator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./generators/BoonsGenerator */ "./src/game/levels/generators/BoonsGenerator.js");
+/* harmony import */ var _counters_AgeCounter__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./counters/AgeCounter */ "./src/game/levels/counters/AgeCounter.js");
+/* harmony import */ var _counters_StageCounter__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./counters/StageCounter */ "./src/game/levels/counters/StageCounter.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+
+
+
+
+var TutorialLevel =
+/*#__PURE__*/
+function (_Level) {
+  _inherits(TutorialLevel, _Level);
+
+  function TutorialLevel() {
+    _classCallCheck(this, TutorialLevel);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(TutorialLevel).apply(this, arguments));
+  }
+
+  _createClass(TutorialLevel, [{
+    key: "setProperties",
+
+    /**
+    * Class description
+    *
+    * To handle Core Game Level Related Actions. 
+    * Core Game Logics for the entire scene are handled here.
+    */
+    value: function setProperties() {
+      this.player = null; // Used for ground tiles generation
+
+      this.tiles = null; // Menu
+
+      this.menu = null;
+      this.pointsTextControl = null;
+      this.currentRecordTextControl = null;
+      this.hasMadeRecordTextControl = null;
+      this.status = null;
+      this.speed = GAME.options.player.defaultSpeed + 10;
+      this.freezeGeneration = false;
+      this.age = 18; // this.gamestats = null;
+    }
+    /**
+     * Function to setup musics and sound assets
+     */
+
+  }, {
+    key: "setupAssets",
+    value: function setupAssets() {
+      // Dummy Sounds for Time Being. Needs changing (Or requires providing credits)
+      this.assets.addMusic('music', '/assets/musics/SCAM_MAN_background2.wav', {
+        volume: 0.001,
+        autoplay: true
+      });
+      this.assets.addSound('gameLostSound', '/assets/sounds/game-lost.wav', {
+        volume: 0.01
+      });
+      this.assets.addSound('gotCoinSound', '/assets/sounds/coin_going_into_pot.wav', {
+        volume: 0.005
+      });
+      this.assets.addSound('beginGameSound', '/assets/sounds/begin_game.wav', {
+        volume: 0.005
+      });
+      this.assets.addSound('infoSound', '/assets/sounds/info.wav', {
+        volume: 0.003
+      });
+      this.assets.addSound('damageSound', '/assets/sounds/scammed.wav', {
+        volume: 0.01
+      });
+      this.assets.addSound('movementSound', '/assets/sounds/movement.wav', {
+        volume: 0.007
+      });
+      this.assets.addSound('zappingSound', '/assets/sounds/Zapping_Scam.wav', {
+        volume: 0.0025
+      });
+      this.assets.addSound('winningSound', '/assets/sounds/Winning_Sound.wav', {
+        volume: 0.01
+      });
+      this.assets.addSound('splashScreenSound', '/assets/sounds/Winning_Sound.wav', {
+        volume: 0.01
+      });
+      this.assets.addSound('selectSound', '/assets/sounds/Select_sound.wav', {
+        volume: 0.005
+      });
+    }
+    /**
+     * Function to set scene with camera, player.
+     * Also Coins will be initialized followed by Scam Objects and Boon Objects
+     */
+
+  }, {
+    key: "buildScene",
+    value: function buildScene() {
+      var _this = this;
+
+      this.scene.clearColor = new BABYLON.Color3.FromHexString(GAME.options.backgroundColor); // this.createGameStats();
+      // Sets the active camera
+
+      var camera = this.createCamera();
+      this.scene.activeCamera = camera; //Light direction is directly down from a position one unit up, fast decay
+      // this.light = new BABYLON.SpotLight("spotLight3", new BABYLON.Vector3(0, -1, -500), new BABYLON.Vector3(0, 0, 1), Math.PI / 2, 50, this.scene);
+      // this.light.diffuse = new BABYLON.Color3(1, 1, 1);
+      // this.light.specular = new BABYLON.Color3(1, 1, 1);
+      // this.light.intensity = 0.5;
+
+      this.light = new BABYLON.HemisphericLight("HemiLight", new BABYLON.Vector3(0, -1, 0), this.scene);
+      this.light.intensity = 1;
+      this.light.groundColor = new BABYLON.Color3(1, 1, 1);
+      this.light.specular = BABYLON.Color3.Black();
+      this.createPlayer();
+      this.tiles = new _generators_TilesGenerator__WEBPACK_IMPORTED_MODULE_3__["default"](this);
+      this.tiles.generate(); // Scams will be started after n seconds.
+
+      setTimeout(function () {
+        _this.scams = new _generators_ScamsGenerator__WEBPACK_IMPORTED_MODULE_4__["default"](_this);
+
+        _this.scams.generate();
+      }, GAME.options.player.scamStartAfter); // Boons will be started after 3*n+0.5 seconds.
+
+      setTimeout(function () {
+        _this.boons = new _generators_BoonsGenerator__WEBPACK_IMPORTED_MODULE_5__["default"](_this);
+
+        _this.boons.generate();
+      }, GAME.options.player.scamStartAfter * 3 + 500);
+      this.scene.useMaterialMeshMap = true;
+      this.scene.debugLayer.hide(); // this.scene.debugLayer.show();
+
+      BABYLON.Engine.audioEngine.useCustomUnlockedButton = true;
+    }
+    /**
+     * Function to show Game Instructions
+     * Message varies based on device
+     */
+
+  }, {
+    key: "createTutorialText",
+    value: function createTutorialText(messageNumber) {
+      var _this2 = this;
+
+      this.player.infoSound.play();
+      this.robbinFlapSpriteManager = new BABYLON.SpriteManager("robbinFlapSpriteManager", "assets/scenes/robin_flap_1.png", 1, {
+        width: 65,
+        height: 62
+      }, this.scene);
+      var robbinFlap = new BABYLON.Sprite("player", this.robbinFlapSpriteManager);
+      robbinFlap.playAnimation(0, 5, true, 100);
+      robbinFlap.position = new BABYLON.Vector3(-1, 2, -1);
+      var text = '';
+
+      if (messageNumber == 1) {
+        text = GAME.isMobile() ? 'Swipe screen Left/Right to control Scam Man. Swipe Up to Shoot.' : 'Use Arrow Keys to Move & Space to Shoot.';
+      } else if (messageNumber == 2) {
+        text = GAME.isMobile() ? 'Swipe up to shine your torch.' : 'Use Up Arrow keys or Space to shine your torch.';
+      } else if (messageNumber == 3) {
+        text = 'Collect as many coins and bonuses as you can to win the game.';
+      }
+
+      var menuTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI('uiName', false);
+      var image = new BABYLON.GUI.Image("icon", "assets/scenes/tutorial_plate.png");
+      image.width = 1;
+      image.height = 0.2;
+      image.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
+      image.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
+      menuTexture.addControl(image);
+      var rectBox = new BABYLON.GUI.Rectangle();
+      rectBox.width = 0.65;
+      rectBox.height = 0.2;
+      rectBox.left = '-15px';
+      rectBox.top = '10px';
+      rectBox.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
+      rectBox.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
+      rectBox.thickness = 0;
+      menuTexture.addControl(rectBox);
+      var textControl = new BABYLON.GUI.TextBlock();
+      textControl.text = text;
+      textControl.fontSize = 15;
+      textControl.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
+      textControl.textVerticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
+      textControl.textWrapping = true;
+      rectBox.addControl(textControl);
+
+      var cornerSphere = function cornerSphere(scene) {
+        var frustumPlanes = BABYLON.Frustum.GetPlanes(scene.activeCamera.getTransformationMatrix());
+        var d = frustumPlanes[0].d;
+        var aspectRatio = GAME.engine.getAspectRatio(scene.activeCamera);
+        var fov = scene.activeCamera.fov;
+        var y = 2 * d * Math.tan(fov / 2);
+        var x = y * aspectRatio;
+        var z = d;
+        robbinFlap.position.x = -x + 1;
+        robbinFlap.position.y = y - 1;
+        robbinFlap.position.z = z;
+        robbinFlap.size = 1.5;
+      };
+
+      this.scene.registerBeforeRender(function () {
+        return cornerSphere(_this2.scene);
+      });
+      setTimeout(function () {
+        robbinFlap.dispose();
+        menuTexture.dispose(); // tutorialTextPlate.dispose();
+      }, 5000);
+    }
+    /**
+     * Function to setup camera for Game Engine.
+     */
+
+  }, {
+    key: "createCamera",
+    value: function createCamera() {
+      var camera = new BABYLON.UniversalCamera("camera", new BABYLON.Vector3(0, 0, -8), this.scene); // let camera = new BABYLON.ArcRotateCamera("arcCamera", 0, 0, -8, BABYLON.Vector3.Zero(), this.scene);
+
+      camera.setTarget(BABYLON.Vector3.Zero());
+      return camera;
+    }
+    /**
+     * Function to setup player with default lighting.
+     */
+
+  }, {
+    key: "createPlayer",
+    value: function createPlayer() {
+      var _this3 = this;
+
+      // Creates the player and sets it as camera target
+      this.player = new _Player__WEBPACK_IMPORTED_MODULE_1__["default"](this);
+      this.playerLight = new BABYLON.DirectionalLight("playerLight", new BABYLON.Vector3(0, -1, 1), this.scene);
+      this.playerLight.intensity = 20;
+      this.playerLight.includedOnlyMeshes.push(this.player.mesh);
+      this.playerLight.parent = this.player.mesh;
+      this.light.excludedMeshes.push(this.player.mesh); // Actions when player dies
+
+      this.player.onDie = function () {
+        _this3.player.gameEnded = true;
+        clearInterval(_this3.speedTrigger);
+        _this3.player.mesh.material.alpha = 0;
+        var player = new BABYLON.Sprite("player", _this3.player.spriteManagerPlayer['lose']);
+        player.position = _this3.player.mesh.position;
+        player.position = new BABYLON.Vector3(_this3.player.mesh.position.x, _this3.player.mesh.position.y - 0.2, 0);
+        player.size = 0.8;
+        player.isPickable = true;
+
+        _this3.player.gameLostSound.play();
+
+        player.playAnimation(0, 2, false, 400, function () {
+          GAME.pause();
+          _this3.player.pauseButtonControl.isVisible = false;
+          _this3.player.soundMuteButtonControl.isVisible = false;
+          _this3.player.soundUnMuteButtonControl.isVisible = false;
+        });
+      }; // Actions when player wins
+
+
+      this.player.win = function () {
+        _this3.player.gameEnded = true;
+        clearInterval(_this3.speedTrigger);
+
+        _this3.player.winningSound.play();
+
+        GAME.pause();
+        _this3.status = 'WIN';
+        _this3.player.pauseButtonControl.isVisible = false;
+        _this3.player.soundMuteButtonControl.isVisible = false;
+        _this3.player.soundUnMuteButtonControl.isVisible = false;
+      }; // Tutorial level length
+
+
+      setTimeout(function () {
+        _this3.freezeGeneration = true; // After all game objects are done start game
+
+        setTimeout(function () {
+          if (!_this3.player.gameEnded) {
+            _this3.player.gameEnded = true;
+            GAME.goToLevel('RunnerLevel');
+          }
+        }, 5000);
+      }, GAME.options.tutorialLength * 1000);
+    }
+    /**
+     * Function to call logics that will be rendered seamlessly.
+     */
+
+  }, {
+    key: "beforeRender",
+    value: function beforeRender() {
+      var _this4 = this;
+
+      if (!GAME.isPaused()) {
+        this.player.pauseButtonControl.isVisible = true;
+        this.player.coinsTextControl.isVisible = false;
+        this.player.skipControl.isVisible = true;
+        this.player.move();
+
+        if (!this.player.beamEnabled && this.player.changePosition && !this.player.playerLanding && !this.player.gameEnded && this.nextStage) {
+          this.player.mesh.material.alpha = 1;
+        } else {
+          this.player.mesh.material.alpha = 0;
+        }
+
+        if (!this.gameStarted) {
+          setTimeout(function () {
+            // Land player without any text
+            _this4.nextStage = 1;
+
+            _this4.player.landPlayer();
+
+            _this4.createTutorialText(1);
+          }, 2000);
+          this.freezeGeneration = true;
+          this.gameStarted = true;
+          this.player.mesh.material.alpha = 0;
+        }
+      }
+    }
+    /**
+     * Function to return game speed outside this Class 
+     */
+
+  }, {
+    key: "getGameSpeed",
+    value: function getGameSpeed() {
+      return this.speed;
+    }
+  }]);
+
+  return TutorialLevel;
 }(_base_Level__WEBPACK_IMPORTED_MODULE_2__["default"]);
 
 
@@ -2387,12 +2928,12 @@ function () {
       this.ageControl.isVisible = false;
       this.progressValue.addControl(this.ageControl);
 
-      for (var index = 1; index <= 3; index++) {
+      for (var index = 1; index <= 4; index++) {
         var splitter = new BABYLON.GUI.Rectangle();
         splitter.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-        splitter.width = 0.3333 * index;
+        splitter.width = 0.3334 * index;
         splitter.height = 1;
-        splitter.thickness = 3;
+        splitter.thickness = 4;
         splitter.background = 'transparent';
         progressBar.addControl(splitter);
       } // let startText = new BABYLON.GUI.TextBlock();
@@ -2423,7 +2964,7 @@ function () {
       var gameLength = GAME.options.gameLength; // 1 min
 
       this.trigger = setInterval(function () {
-        if (ageValue <= 47) {
+        if (ageValue < 47) {
           if (!GAME.isPaused()) {
             moveProgressWidth += 98 / gameLength / 100 / 10;
             ageValue += 47 / gameLength / 10;
@@ -2538,33 +3079,37 @@ function () {
           screen = 1;
       this.scamsMessage = [];
       this.scamsImage = [];
-      var stageUI = new _base_UI__WEBPACK_IMPORTED_MODULE_2__["default"]('stageLoadingUI');
-      var background = new BABYLON.GUI.Rectangle();
-      background.width = 1;
-      background.height = 1;
-      background.thickness = 0;
-      background.background = "#FFDA75";
-      background.alpha = 1;
-      stageUI.menuTexture.addControl(background);
+      var stageUI = new _base_UI__WEBPACK_IMPORTED_MODULE_2__["default"]('stageLoadingUI'); // let background = new BABYLON.GUI.Rectangle();
+      // background.width = 1;
+      // background.height = 1;
+      // background.thickness = 0;
+      // background.background = "#FFDA75";
+      // background.alpha = 1;
+      // stageUI.menuTexture.addControl(background);
+
+      var stageData = _public_stage_json__WEBPACK_IMPORTED_MODULE_0__["stage_" + stage];
+      var background = stageUI.addImage('stageScreen', {
+        'imgpath': stageData.path,
+        'width': 1,
+        'height': 1
+      });
       this.stageUI = new BABYLON.GUI.Rectangle();
       this.stageUI.width = 0.9;
       this.stageUI.height = 1;
       this.stageUI.thickness = 0;
       this.stageUI.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
       stageUI.menuTexture.addControl(this.stageUI);
-      var stageData = _public_stage_json__WEBPACK_IMPORTED_MODULE_0__["stage_" + stage];
 
       if (stageData) {
-        this.stageStatus = this.addText('Level ' + stage + '…. Loading in ' + timer, {
-          'top': '-180px',
-          'color': GAME.options.pointsTextColor,
-          'outlineColor': GAME.options.pointsOutlineTextColor,
-          'outlineWidth': '2px',
-          'fontSize': '25px',
-          'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER
-        });
-        stageUI.menuTexture.addControl(this.stageStatus);
-
+        // this.stageStatus = this.addText('Stage ' + stage, {
+        //     'top': '-180px',
+        //     'color': GAME.options.pointsTextColor,
+        //     'outlineColor': GAME.options.pointsOutlineTextColor,
+        //     'outlineWidth': '2px',
+        //     'fontSize': '25px',
+        //     'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER
+        // });
+        // stageUI.menuTexture.addControl(this.stageStatus);
         if (stageData['message']) {
           this.gameSubTextControl = this.addText(stageData['message'], {
             'top': '-140px',
@@ -2609,14 +3154,14 @@ function () {
 
               _this.scamsImage.forEach(function (image) {
                 image.dispose();
-              });
+              }); // background.background = "#F38669";
 
-              background.background = "#F38669";
+
               screen = 2;
 
               _this.player.infoSound.play();
             } else if (show) {
-              stageUI.remove(_this.stageStatus);
+              // stageUI.remove(this.stageStatus);
               _this.player.coinsTextControl.isVisible = true;
               stageUI.clear();
 
@@ -2627,7 +3172,6 @@ function () {
               }
 
               show = false;
-              clearInterval(trigger);
             }
           }
         });
@@ -2683,46 +3227,6 @@ function () {
 
         this.player.coinsTextControl.isVisible = false;
         stageUI.show();
-        var trigger = setInterval(function () {
-          if (show) {
-            timer = timer - 1;
-            _this.stageStatus.text = 'Level ' + stage + '…. Loading in ' + (!timer && screen === 1 ? 6 : timer);
-          }
-
-          if (screen === 1 && !timer && stage > 0) {
-            timer = GAME.options.messageReadTime;
-
-            _this.setBoons(stageData);
-
-            _this.scamDescription.dispose();
-
-            _this.scamsMessage.forEach(function (scam) {
-              scam.dispose();
-            });
-
-            _this.scamsImage.forEach(function (image) {
-              image.dispose();
-            });
-
-            background.background = "#F38669";
-            screen = 2;
-
-            _this.player.infoSound.play();
-          } else if (show && timer <= 0) {
-            stageUI.remove(_this.stageStatus);
-            _this.player.coinsTextControl.isVisible = true;
-            stageUI.clear();
-
-            if (!_this.player.gameEnded) {
-              GAME.resume();
-
-              _this.player.landPlayer();
-            }
-
-            show = false;
-            clearInterval(trigger);
-          }
-        }, 1000);
       }
     }
   }, {
@@ -2859,9 +3363,13 @@ function () {
       setInterval(function () {
         _this.boonTypes = _public_stage_json__WEBPACK_IMPORTED_MODULE_2__["stage_" + (_this.level.nextStage - 1)]["boons"];
 
-        if (!GAME.isPaused() && _this.player.lives && _this.level.age < 65 && !_this.level.freezeGeneration) {
+        if (!GAME.isPaused() && _this.player.lives && _this.level.age < 65 && !_this.level.freezeGeneration && _this.scene) {
           var randomTileTypeNumber = Math.floor(Math.random() * _this.boonTypes.length);
           var boonType = _this.boonTypes[randomTileTypeNumber];
+
+          if (GAME.currentLevelName === 'TutorialLevel' && !_this.typeOfBoon) {
+            _this.level.createTutorialText(3);
+          }
 
           _this.activeBoons.push(randomTileTypeNumber);
 
@@ -2912,9 +3420,10 @@ function () {
       var boons = BABYLON.MeshBuilder.CreateBox("boon_" + randomPositionChooser, {
         width: boonDiameter,
         height: boonDiameter,
-        depth: 0.01
+        depth: 0.001
       }, this.scene);
       boons.material = this.level.getMaterial('boonMaterial');
+      boons.material.diffuseTexture.hasAlpha = true;
       boons.position.x = positionX;
       boons.position.y = 3;
       boons.position.z = 0;
@@ -2938,6 +3447,11 @@ function () {
                   _this2.removeActiveBoon(randomTileTypeNumber);
 
                   clearInterval(trigger);
+
+                  _this2.player.shootAction.dispose();
+
+                  clearInterval(_this2.player.shootTrigger);
+                  _this2.player.beamEnabled = false;
                 }, 200);
               }
             }
@@ -3111,10 +3625,14 @@ function () {
       setInterval(function () {
         _this.scamTypes = _public_stage_json__WEBPACK_IMPORTED_MODULE_2__["stage_" + (_this.level.nextStage - 1)]["scams"];
 
-        if (!GAME.isPaused() && _this.player.lives && _this.level.age < 65 && !_this.level.freezeGeneration) {
+        if (!GAME.isPaused() && _this.player.lives && _this.level.age < 65 && !_this.level.freezeGeneration && _this.scene) {
           var randomTileTypeNumber = Math.floor(Math.random() * _this.scamTypes.length);
           var scamType = _this.scamTypes[randomTileTypeNumber];
           _this.player.activeScam = scamType;
+
+          if (GAME.currentLevelName === 'TutorialLevel' && !_this.scamSet.size) {
+            _this.level.createTutorialText(2);
+          }
 
           _this.activeScams.push(randomTileTypeNumber);
 
@@ -3162,7 +3680,7 @@ function () {
       var scams = BABYLON.MeshBuilder.CreateBox("scam_" + randomPositionChooser, {
         width: scamDiameter,
         height: scamDiameter,
-        depth: 0.01
+        depth: 0.001
       }, this.scene);
       var message = _public_message_json__WEBPACK_IMPORTED_MODULE_1__.message;
       var location = message[type].path;
@@ -3210,6 +3728,11 @@ function () {
                   _this2.removeActiveScam(randomTileTypeNumber);
 
                   clearInterval(trigger);
+
+                  _this2.player.shootAction.dispose();
+
+                  clearInterval(_this2.player.shootTrigger);
+                  _this2.player.beamEnabled = false;
                 }, 200);
 
                 _this2.player.keepScam(randomPositionChooser);
@@ -3461,7 +3984,7 @@ function () {
         scams[index] = BABYLON.MeshBuilder.CreateBox("scam_" + randomPositionChooser, {
           width: scamDiameter,
           height: scamDiameter,
-          depth: 0.01
+          depth: 0.001
         }, _this4.scene);
         var message = _public_message_json__WEBPACK_IMPORTED_MODULE_1__.message;
         var location = message["splitter"].path;
@@ -3497,6 +4020,11 @@ function () {
                     _this4.removeActiveScam(randomTileTypeNumber);
 
                     clearInterval(trigger[index]);
+
+                    _this4.player.shootAction.dispose();
+
+                    clearInterval(_this4.player.shootTrigger);
+                    _this4.player.beamEnabled = false;
                   }, 200);
 
                   _this4.player.keepScam(randomPositionChooser);
@@ -3561,7 +4089,7 @@ function () {
   }, {
     key: "createSplitterAnimation",
     value: function createSplitterAnimation(scams, direction) {
-      var scamAnimation = new BABYLON.Animation("scamfall", "position", this.level.getGameSpeed() - 20, BABYLON.Animation.ANIMATIONTYPE_VECTOR3, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
+      var scamAnimation = new BABYLON.Animation("scamfall", "position", this.level.getGameSpeed() - 10, BABYLON.Animation.ANIMATIONTYPE_VECTOR3, BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
       var keys = [];
       var position = scams.position;
 
@@ -3709,13 +4237,13 @@ function () {
       }
 
       this.activeCoins.push(randomPositionChooser);
-      var coinDiameter = GAME.isMobile() ? 0.25 : 0.4;
+      var coinDiameter = GAME.isMobile() ? 0.3 : 0.4;
       var coins = BABYLON.Mesh.CreateCylinder("coin", 0.01, coinDiameter, coinDiameter, 16, 0, this.scene);
       coins.material = this.level.getMaterial('coinMaterial');
       coins.position.x = positionX;
       coins.position.y = 3;
       coins.position.z = 0;
-      coins.rotation.x = -1.5;
+      coins.rotation.x = 4.712;
       coins.animations.push(this.createCoinAnimation());
       var coinAnimation = this.scene.beginAnimation(coins, 0, 2000, false);
       var playerMesh = this.player.getMesh();
@@ -3829,7 +4357,7 @@ function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /home/jman/projects/Scamman&Robbins_staging/backup_pull/scam-man-and-robbin/front-end-babylonjs/src/app.js */"./src/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\scam-man-and-robbin\front-end-babylonjs\src\app.js */"./src/app.js");
 
 
 /***/ })

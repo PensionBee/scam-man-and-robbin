@@ -50,9 +50,12 @@ export default class BoonsGenerator {
         // New boons keep generating every 10 second
         setInterval(() => {
             this.boonTypes = stages["stage_" + (this.level.nextStage - 1)]["boons"];
-            if (!GAME.isPaused() && this.player.lives && this.level.age < 65 && !this.level.freezeGeneration) {
+            if (!GAME.isPaused() && this.player.lives && this.level.age < 65 && !this.level.freezeGeneration && this.scene) {
                 let randomTileTypeNumber = Math.floor((Math.random() * this.boonTypes.length));
                 let boonType = this.boonTypes[randomTileTypeNumber];
+                if (GAME.currentLevelName === 'TutorialLevel' && !this.typeOfBoon) {
+                    this.level.createTutorialText(3);
+                }
                 this.activeBoons.push(randomTileTypeNumber);
                 this.typeOfBoon++;
                 let message = Message.message;
@@ -61,7 +64,7 @@ export default class BoonsGenerator {
 
                 this.texture = new BABYLON.Texture(location, this.scene);
                 this.boonMaterial.diffuseTexture = this.texture
-                this.boonMaterial.diffuseTexture.hasAlpha =true;
+                this.boonMaterial.diffuseTexture.hasAlpha = true;
                 this.createBoons(boonType, randomTileTypeNumber);
                 if (!this.boonSet.has(boonType)) {
                     this.boonSet.add(boonType);
@@ -95,10 +98,11 @@ export default class BoonsGenerator {
         let boons = BABYLON.MeshBuilder.CreateBox("boon_" + randomPositionChooser, {
             width: boonDiameter,
             height: boonDiameter,
-            depth: 0.01
+            depth: 0.001
         }, this.scene);
 
         boons.material = this.level.getMaterial('boonMaterial');
+        boons.material.diffuseTexture.hasAlpha = true;
         boons.position.x = positionX;
         boons.position.y = 3;
         boons.position.z = 0;
@@ -118,6 +122,9 @@ export default class BoonsGenerator {
                                 element.dispose();
                                 this.removeActiveBoon(randomTileTypeNumber);
                                 clearInterval(trigger);
+                                this.player.shootAction.dispose();
+                                clearInterval(this.player.shootTrigger);
+                                this.player.beamEnabled = false;
                             }, 200);
                         }
                     }

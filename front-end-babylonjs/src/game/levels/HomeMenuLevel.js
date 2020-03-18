@@ -12,9 +12,9 @@ export default class HomeMenuLevel extends Level {
     * Function to setup musics and sound assets
     */
     setupAssets() {
-        this.assets.addMusic('music', '/assets/musics/SCAM_MAN_background2.mp3');
+        this.assets.addMusic('music', '/assets/musics/SCAM_MAN_background2.wav');
         this.assets.addSound('selectSound', '/assets/sounds/Select_sound.wav');
-
+        this.assets.addSound('splashScreenSound', '/assets/sounds/Winning_Sound.wav', { volume: 0.01, autoplay: true });
     }
 
     /**
@@ -34,15 +34,16 @@ export default class HomeMenuLevel extends Level {
             'strech' : BABYLON.GUI.Image.stretch_uniform,
             'width' : 0.7,
             'height' : 0.6,
-            'top' : '0px' 
+            'verticalAlignment' : BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP,
+            'top' : '100px' 
         });
         menu.addImgButton('playButton', {
-            'imgpath' : "assets/scenes/scam-man-play-btn.png",
+            'imgpath' : "assets/scenes/Start_button.png",
             'width' : 0.25,
             'top' : '210px',
             'onclick': () => {
                 click.play();
-                GAME.goToLevel('RunnerLevel')
+                GAME.goToLevel('TutorialLevel')
             }
         });
 

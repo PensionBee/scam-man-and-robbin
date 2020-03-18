@@ -6,15 +6,18 @@
         "boons" : ["normal_boon"]
     },
     "stage_1" : {
-        "scams" : ["zig_zag", "accelerator"],
+        "path" : "assets/scenes/stage_1.png",
+        "scams" : ["diagonal", "accelerator"],
         "boons" : ["refuse", "pension_wise"]
     },
     "stage_2" : {
-        "scams" : ["speedy", "diagonal"],
+        "path" : "assets/scenes/stage_2.png",
+        "scams" : ["speedy", "zig_zag"],
         "boons" : ["thinking_about", "invisiblity_boon"]
     },
     "stage_3" : {
-        "scams" : ["diagonal", "splitter"],
+        "path" : "assets/scenes/stage_1.png",
+        "scams" : ["zig_zag", "splitter"],
         "boons" : ["dont_transfer", "invisiblity_boon"]
     }
 }

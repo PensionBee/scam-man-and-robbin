@@ -40,17 +40,17 @@ export default class RunnerLevel extends Level {
     setupAssets() {
 
         // Dummy Sounds for Time Being. Needs changing (Or requires providing credits)
-        this.assets.addMusic('music', '/assets/musics/SCAM_MAN_background2.wav',{autoplay: true});
-        this.assets.addSound('gameLostSound', '/assets/sounds/game-lost.wav');
-        this.assets.addSound('gotCoinSound', '/assets/sounds/coin_going_into_pot.wav');
-        this.assets.addSound('beginGameSound', '/assets/sounds/begin_game.wav');
-        this.assets.addSound('infoSound', '/assets/sounds/info.wav');
-        this.assets.addSound('damageSound', '/assets/sounds/scammed.wav');
-        this.assets.addSound('movementSound', '/assets/sounds/movement.wav');
-        this.assets.addSound('zappingSound', '/assets/sounds/Zapping_Scam.wav',{ volume: 0.2 });
-        this.assets.addSound('winningSound', '/assets/sounds/Winning_Sound.wav');
-        this.assets.addSound('splashScreenSound', '/assets/sounds/Winning_Sound.wav');
-        this.assets.addSound('selectSound', '/assets/sounds/Select_sound.wav');
+        this.assets.addMusic('music', '/assets/musics/SCAM_MAN_background2.wav', { volume: 0.001, autoplay: true });
+        this.assets.addSound('gameLostSound', '/assets/sounds/game-lost.wav', { volume: 0.01 });
+        this.assets.addSound('gotCoinSound', '/assets/sounds/coin_going_into_pot.wav', { volume: 0.005 });
+        this.assets.addSound('beginGameSound', '/assets/sounds/begin_game.wav', { volume: 0.005 });
+        this.assets.addSound('infoSound', '/assets/sounds/info.wav', { volume: 0.003 });
+        this.assets.addSound('damageSound', '/assets/sounds/scammed.wav', { volume: 0.01 });
+        this.assets.addSound('movementSound', '/assets/sounds/movement.wav', { volume: 0.007 });
+        this.assets.addSound('zappingSound', '/assets/sounds/Zapping_Scam.wav', { volume: 0.0025 });
+        this.assets.addSound('winningSound', '/assets/sounds/Winning_Sound.wav', { volume: 0.01 });
+        this.assets.addSound('splashScreenSound', '/assets/sounds/Winning_Sound.wav', { volume: 0.01 });
+        this.assets.addSound('selectSound', '/assets/sounds/Select_sound.wav', { volume: 0.005 });
 
     }
 
@@ -78,10 +78,10 @@ export default class RunnerLevel extends Level {
 
 
         //Light direction is directly down from a position one unit up, fast decay
-        this.light = new BABYLON.SpotLight("spotLight3", new BABYLON.Vector3(0, -1, -500), new BABYLON.Vector3(0, 0, 1), Math.PI / 2, 50, this.scene);
-        this.light.diffuse = new BABYLON.Color3(1, 1, 1);
-        this.light.specular = new BABYLON.Color3(1, 1, 1);
-        this.light.intensity = 0.5;
+        this.light = new BABYLON.HemisphericLight("HemiLight", new BABYLON.Vector3(0, -1, 0), this.scene);
+        this.light.intensity = 1;
+        this.light.groundColor = new BABYLON.Color3(1,1,1);
+        this.light.specular = BABYLON.Color3.Black();
 
 
         //light1.intensity = 1;
@@ -124,40 +124,41 @@ export default class RunnerLevel extends Level {
      */
     createMenus() {
         this.menu = new UI('runnerMenuUI');
-        // this.lostScreen = new BABYLON.GUI.Image("lostScreen", "assets/scenes/Game_over_screen.png");
-        // this.lostScreen.width = 1;
-        // this.lostScreen.height = 1;
-        // this.menu.menuTexture.addControl(this.lostScreen);
-        // this.lostScreen.isVisible = false;
+
         this.lostScreen = this.menu.addImage('lostScreen',{
             'imgpath':"assets/scenes/Game_over_screen.png",
-            'width' : 0.7,
-            'height' : 0.7
+            'width' : 0.8,
+            'height' : 0.8,
         });
-        this.gameStatus = this.menu.addText('Congratulations!', {
-            'top': '60px',
-            'color': GAME.options.pointsTextColor,
-            'outlineColor': GAME.options.pointsOutlineTextColor,
-            'outlineWidth': '2px',
-            'fontSize': '40px',
-            'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP
+        this.winningScreen = this.menu.addImage('winningScreen',{
+            'imgpath':"assets/scenes/winning_screen_1.png",
+            'width' : 0.8,
+            'height' : 0.8,
         });
+        // this.gameStatus = this.menu.addText('Congratulations!', {
+        //     'top': '60px',
+        //     'color': GAME.options.pointsTextColor,
+        //     'outlineColor': GAME.options.pointsOutlineTextColor,
+        //     'outlineWidth': '2px',
+        //     'fontSize': '40px',
+        //     'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP
+        // });
 
         this.gameSubTextControl = this.menu.addText('You cannot give up. Try reaching Age 65...', {
-            'top': '105px',
+            'width' : 0.5,
+            'top': '155px',
             'color': GAME.options.pointsTextColor,
             'outlineColor': GAME.options.pointsOutlineTextColor,
             'outlineWidth': '2px',
             'fontSize': '15px',
             'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP
         });
-
         this.pointsTextControl = this.menu.addText('Pension Pot: £ 0', {
-            'top': '180px',
+            'top': '220px',
             'color': GAME.options.pointsTextColor,
             'outlineColor': GAME.options.pointsOutlineTextColor,
             'outlineWidth': '2px',
-            'fontSize': '35px',
+            'fontSize': '30px',
             'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP
         });
 
@@ -171,19 +172,27 @@ export default class RunnerLevel extends Level {
         // });
 
         this.currentRecordTextControl = this.menu.addText('Current Record: 0', {
-            'top': '220px',
+            'top': '260px',
             'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP
         });
 
         this.hasMadeRecordTextControl = this.menu.addText('You got a new Points Record!', {
-            'top': '260px',
+            'top': '300px',
             'color': GAME.options.recordTextColor,
             'fontSize': '20px',
             'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP
         });
 
-        this.menu.addButton('replayButton', 'Replay Game', {
-            'top': '300px',
+        this.lastDisplay = this.menu.addText('lastText',{
+            'top' : '460px',
+            'fontSize' : '15px',
+            'color': GAME.options.recordTextColor,
+            'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP,
+            'width' : 0.5,
+        });
+        this.menu.addImgButton('replayButton', {
+            'imgpath' : "assets/scenes/Play_again.png",
+            'top': '340px',
             'height': '50px',
             'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP,
             'textVerticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER,
@@ -193,14 +202,28 @@ export default class RunnerLevel extends Level {
             }
         });
 
-        this.menu.addButton('backButton', 'Return to Home', {
-            'top': '360px',
+        this.menu.addImgButton('Return to Home', {
+            'imgpath' : "assets/scenes/Home_Button.png",
+            'top': '390px',
             'height': '50px',
             'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP,
             'textVerticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER,
             'onclick': () => {
                 this.player.selectSound.play();
                 GAME.goToLevel('HomeMenuLevel')
+            }
+        });
+
+        this.menu.addImgButton('Learn more', {
+            'imgpath' : "assets/scenes/learnmore.png",
+            'top': '550px',
+            'height': '15px',
+            'width' : 0.2,
+            'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP,
+            'textVerticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER,
+            'onclick': () => {
+                this.player.selectSound.play();
+                window.open('https://www.jmangroup.com/', '_blank');
             }
         });
 
@@ -267,6 +290,7 @@ export default class RunnerLevel extends Level {
                 GAME.pause();
                 this.showMenu();
                 this.ageTimer.clear();
+                this.player.hud.hide();
                 this.player.pauseButtonControl.isVisible = false;
                 this.player.soundMuteButtonControl.isVisible = false;
                 this.player.soundUnMuteButtonControl.isVisible = false;
@@ -278,13 +302,23 @@ export default class RunnerLevel extends Level {
             this.player.gameEnded = true;
             clearInterval(this.speedTrigger);
             this.player.winningSound.play();
-            GAME.pause();
-            this.status = 'WIN';
-            this.showMenu();
-            this.ageTimer.clear();
-            this.player.pauseButtonControl.isVisible = false;
-            this.player.soundMuteButtonControl.isVisible = false;
-            this.player.soundUnMuteButtonControl.isVisible = false;
+
+            this.player.mesh.material.alpha = 0;
+            var player = new BABYLON.Sprite("player", this.player.spriteManagerPlayer['win']);
+            player.position = this.player.mesh.position;
+            player.position = new BABYLON.Vector3(this.player.mesh.position.x + 0.2, this.player.mesh.position.y, 0);
+            player.size = 1.2;
+            player.isPickable = true;
+            setTimeout(() => {
+                this.player.hud.hide();
+                GAME.pause();
+                this.status = 'WIN';
+                this.showMenu();
+                this.ageTimer.clear();
+                this.player.pauseButtonControl.isVisible = false;
+                this.player.soundMuteButtonControl.isVisible = false;
+                this.player.soundUnMuteButtonControl.isVisible = false;
+            }, 1500);
         }
     }
 
@@ -292,18 +326,21 @@ export default class RunnerLevel extends Level {
      * Function to show Menu with last points/high record
      */
     showMenu() {
+        this.menu.show();
+        this.lastDisplay.text = "Unfortunately, Scam Man won't be on hand to protect you! So it is important to know how to identify a pension scam.";
         this.pointsTextControl.text = 'Pension Pot: £' + this.player.getPoints();
         // this.ageTextControl.text = 'Age: ' + this.age;
         this.currentRecordTextControl.text = 'Current Record: ' + this.player.getLastRecord();
+
         if (this.status == 'WIN') {
-            this.gameStatus.text = 'Congratulations!';
+            // this.gameStatus.text = 'Congratulations!';
+            this.lostScreen.isVisible = false;
             this.gameSubTextControl.text = 'You successfully avoided the scams and completed level 3!'
         } else {
-            this.lostScreen.isVisible = true;
-            this.gameStatus.text = 'You Lost!';
-            this.gameSubTextControl.text = 'Play again and see if you can avoid the scams to reach level 3!'
+            
+            this.winningScreen.isVisible = false;
+            this.gameSubTextControl.text = 'You lost! Play again and see if you can avoid the scams to reach level 3!'
         }
-        this.menu.show();
 
         if (this.player.hasMadePointsRecord()) {
             this.hasMadeRecordTextControl.isVisible = true;
