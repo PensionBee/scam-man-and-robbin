@@ -3,11 +3,12 @@ import Game from '../Game.js';
 
 export default class UI {
 
-    constructor(uiName) {
+    constructor(uiName, isBackground) {
         this.currentControlID = 0;
         this.controls = [];
 
-        this.menuTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI(uiName);
+        this.menuTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI(uiName, isBackground ? false : true);
+        
     }
 
     addButton(name, text, options = {}) {
@@ -200,7 +201,7 @@ export default class UI {
         textControl.textHorizontalAlignment = (typeof options.horizontalAlignment !== 'undefined') ? options.horizontalAlignment : BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
         textControl.textVerticalAlignment = (typeof options.verticalAlignment !== 'undefined') ? options.verticalAlignment : BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
         textControl.textWrapping = options.wrapping || true;
-
+        textControl.fontFamily = options.fontFamily || "'Tomorrow',sans-serif";
         this.menuTexture.addControl(textControl);
         this.add(textControl);
 

@@ -22,6 +22,7 @@ export default class StageCounter {
         textControl.text = text;
         textControl.color = options.color || 'black';
         textControl.fontSize = options.fontSize || 20;
+        textControl.fontStyle = options.fontStyle || "";
         textControl.outlineWidth = options.outlineWidth || 0;
         textControl.outlineColor = options.outlineColor || "black";
         textControl.lineSpacing = options.lineSpacing || '0px';
@@ -31,10 +32,10 @@ export default class StageCounter {
         textControl.textHorizontalAlignment = (typeof options.horizontalAlignment !== 'undefined') ? options.horizontalAlignment : BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
         textControl.textVerticalAlignment = (typeof options.verticalAlignment !== 'undefined') ? options.verticalAlignment : BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
         textControl.textWrapping = options.wrapping || true;
-
+        textControl.fontFamily = options.fontFamily || "'Tomorrow',sans-serif";
+        textControl.fontWeight = 'bolder';
         return textControl;
     }
-
 
     /**
      * Function to notify user of each stage
@@ -45,9 +46,10 @@ export default class StageCounter {
     showStage(stage) {
         GAME.pause();
         let show = true, timer = GAME.options.messageReadTime, screen = 1;
+        this.scamsHeading = [];
         this.scamsMessage = [];
         this.scamsImage = [];
-        let stageUI = new UI('stageLoadingUI');
+        let stageUI = new UI('stageLoadingUI'); 
 
         // let background = new BABYLON.GUI.Rectangle();
         // background.width = 1;
@@ -60,7 +62,7 @@ export default class StageCounter {
         let stageData = stages["stage_" + stage];
 
         var background = stageUI.addImage('stageScreen',{
-            'imgpath' : stageData.path,
+            'imgpath' : "assets/scenes/stage_boarder.png",
             'width' : 1,
             'height' : 1
         });
@@ -102,9 +104,10 @@ export default class StageCounter {
 
             // Skip button
             stageUI.addImgButton('continueBtn', {
-                'imgpath': "assets/scenes/scam-man-continue-btn.png",
-                'top': '-50px',
-                'width': GAME.isMobile() ? 0.4 : 0.25,
+                'imgpath': "assets/scenes/Continue.png",
+                'top': -(GAME.engine.getRenderHeight()*6)/100,
+                'width': 0.2,
+                'height' : 0.05,
                 'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,
                 'onclick': () => {
                     // this.player.coinsTextControl.isVisible = true;
@@ -112,20 +115,20 @@ export default class StageCounter {
                     // GAME.resume();
                     // show = false;
                     this.player.selectSound.play();
-                    if (screen === 1 && stage > 0) {
-                        timer = GAME.options.messageReadTime;
-                        this.setBoons(stageData);
-                        this.scamDescription.dispose();
-                        this.scamsMessage.forEach(scam => {
-                            scam.dispose();
-                        });
-                        this.scamsImage.forEach(image => {
-                            image.dispose();
-                        });
-                        // background.background = "#F38669";
-                        screen = 2;
-                        this.player.infoSound.play();
-                    } else if (show) {
+                    // if (screen === 1 && stage > 0) {
+                    //     timer = GAME.options.messageReadTime;
+                    //     this.scamDescription.dispose();
+                    //     this.scamsMessage.forEach(scam => {
+                    //         scam.dispose();
+                    //     });
+                    //     this.scamsImage.forEach(image => {
+                    //         image.dispose();
+                    //     });
+                    //     // background.background = "#F38669";
+                    //     screen = 2;
+                    //     this.player.infoSound.play();
+                    // } 
+                    if (show) {
                         // stageUI.remove(this.stageStatus);
                         this.player.coinsTextControl.isVisible = true;
                         stageUI.clear();
@@ -138,90 +141,137 @@ export default class StageCounter {
                 }
             });
             if (stageData['scams']) {
-                let top = -140;
+                // let top = -(GAME.engine.getRenderHeight()/4.5);
+                this.levelImage = new BABYLON.GUI.Image("levelImage", stageData.path);
+                this.levelImage.width = 0.3;
+                this.levelImage.height = GAME.isMobile() ? 0.05 : 0.07 ;  
+                this.levelImage.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
+                this.levelImage.top = (GAME.engine.getRenderHeight()*5)/100;
+                this.stageUI.addControl(this.levelImage);
                 this.scamDescription = this.addText("Shine your torch and avoid the following scams! ", {
-                    'top': top,
+                    'top': (GAME.engine.getRenderHeight()*12)/100,
                     'color': GAME.options.pointsTextColor,
                     'outlineColor': GAME.options.pointsOutlineTextColor,
                     'outlineWidth': '2px',
                     'fontSize': '15px',
-                    'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER
+                    'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP,
+                    'textVerticalAlignment' : BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER
                 })
                 this.stageUI.addControl(this.scamDescription);
+                this.warningMessage = this.addText("Remember, it doesn’t take many scams to reduce the pension pot to £0!", {
+                    'top': (GAME.engine.getRenderHeight()*50)/100,
+                    'color': GAME.options.pointsTextColor,
+                    'outlineColor': GAME.options.pointsOutlineTextColor,
+                    'outlineWidth': '2px',
+                    'fontSize': '10px',
+                    'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP,
+                    'textVerticalAlignment' : BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER
+                })
+                this.stageUI.addControl(this.warningMessage);
+                let leftimg = (GAME.engine.getRenderWidth()*11)/100;
+                let leftdis = (GAME.engine.getRenderWidth()*3)/100;
                 stageData['scams'].forEach(scam => {
-                    top = top + 100;
+                    // top = GAME.isPad() ?  top + 130 : top + 90 ;
                     let image = new BABYLON.GUI.Image("icon", Message.message[scam].path);
                     image.width = 0.15;
-                    image.height = 0.1;
-                    image.top = top;
-                    image.left = 0.1;
+                    image.height = 0.09;
+                    image.top =  (GAME.engine.getRenderHeight()*20)/100;
+                    image.left = leftimg
                     image.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-                    image.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
+                    image.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
                     this.stageUI.addControl(image);
-
                     let display = new BABYLON.GUI.Rectangle();
-                    display.width = 0.75;
-                    display.height = 0.1;
+                    display.width = 0.37;
+                    display.height = 0.2;
                     display.thickness = 0;
-                    display.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
-                    display.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
-                    display.top = top;
+                    display.left = leftdis
+                    display.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+                    display.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
+                    display.top = (GAME.engine.getRenderHeight()*30)/100;
                     this.stageUI.addControl(display);
-
+                    let scamsHeading = this.addText(Message.message[scam]['name'], {
+                        'top': '0px',
+                        'fontSize': '10px',
+                        'outlineColor': GAME.options.pointsOutlineTextColor,
+                        'outlineWidth': '0.05px',
+                        'left': '1px',
+                        'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
+                        // 'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER
+                    });
                     let scamsMessage = this.addText(Message.message[scam]['info'], {
-                        'top': '1px',
-                        'fontSize': '15px',
-                        'left': '10px',
-                        'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
-                        'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER
-                    })
+                        'top': '30px',
+                        'fontSize': '10px',
+                        'left': '1px',
+                        'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
+                        // 'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER
+                    });
+                    leftimg = leftimg + ((GAME.engine.getRenderWidth()*55)/100);
+                    leftdis = leftdis + ((GAME.engine.getRenderWidth()*55)/100);
+                    this.scamsHeading.push(scamsHeading);
                     this.scamsMessage.push(scamsMessage);
                     this.scamsImage.push(image)
+                    display.addControl(scamsHeading);
                     display.addControl(scamsMessage);
                 });
             }
             this.player.coinsTextControl.isVisible = false;
             stageUI.show();
         }
+        this.setBoons(stageData);
     }
 
     setBoons(stageData) {
-        let top = -140;
+        // let top = (GAME.engine.getRenderHeight()/4.5);
         this.stageUI.addControl(this.addText("Collect bonus points", {
-            'top': top,
+            'top' : (GAME.engine.getRenderHeight()* 58)/100,
             'color': GAME.options.pointsTextColor,
             'outlineColor': GAME.options.pointsOutlineTextColor,
             'outlineWidth': '2px',
             'fontSize': '15px',
-            'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER
+            'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP
         }));
+        let leftimg = (GAME.engine.getRenderWidth()*11)/100;
+        let leftdis = (GAME.engine.getRenderWidth()*3)/100;
         stageData['boons'].forEach(scam => {
-            top = top + 100;
+            // top = GAME.isPad() ?  top + 130 : top + 90 ;
             let image = new BABYLON.GUI.Image("icon", Message.message[scam].path);
             image.width = 0.15;
             image.height = 0.1;
-            image.top = top;
-            image.left = 0.1;
+            image.top = (GAME.engine.getRenderHeight()* 64)/100;
+            image.left = leftimg;
             image.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
-            image.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
+            image.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
             this.stageUI.addControl(image);
 
             let display = new BABYLON.GUI.Rectangle();
-            display.width = 0.75;
-            display.height = 0.1;
+            display.width = 0.37;
+            display.height = 0.2;
             display.thickness = 0;
-            display.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
-            display.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER;
-            display.top = top;
+            display.left = leftdis;
+            display.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+            display.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
+            display.top = (GAME.engine.getRenderHeight()* 75)/100;
             this.stageUI.addControl(display);
 
-            let scamsMessage = this.addText(Message.message[scam]['info'], {
-                'top': '1px',
-                'fontSize': '15px',
-                'left': '10px',
-                'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
-                'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER
+            let scamsHeading = this.addText(Message.message[scam]['name'], {
+                'top': '0px',
+                'fontSize': '10px',
+                'outlineColor': GAME.options.pointsOutlineTextColor,
+                'outlineWidth': '0.05px',
+                'left': '1px',
+                'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
+                // 'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER
             });
+            let scamsMessage = this.addText(Message.message[scam]['info'], {
+                'top': '30px',
+                'fontSize': '10px',
+                'left': '1px',
+                'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
+                // 'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER
+            });
+            leftimg = leftimg + ((GAME.engine.getRenderWidth()*55)/100);
+            leftdis = leftdis + ((GAME.engine.getRenderWidth()*55)/100);
+            display.addControl(scamsHeading);
             display.addControl(scamsMessage);
         });
     }

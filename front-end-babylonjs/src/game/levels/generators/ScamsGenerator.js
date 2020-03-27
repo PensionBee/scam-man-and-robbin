@@ -46,13 +46,21 @@ export default class ScamsGenerator {
 
         // New scams keep generating every 4 second
         setInterval(() => {
-            this.scamTypes = stages["stage_" + (this.level.nextStage - 1)]["scams"];
             if (!GAME.isPaused() && this.player.lives && this.level.age < 65 && !this.level.freezeGeneration && this.scene) {
+                this.scamTypes = [];
+                for (let index = 1; index <= this.level.nextStage; index++) {
+                    var scamList = stages["stage_" + (this.level.nextStage - index)]["scams"]
+                    scamList.forEach(element => {
+                        if(this.scamTypes.indexOf(element) === -1) {
+                            this.scamTypes.push(element);
+                        }
+                    });
+                }
                 let randomTileTypeNumber = Math.floor((Math.random() * this.scamTypes.length));
                 let scamType = this.scamTypes[randomTileTypeNumber];
                 this.player.activeScam = scamType;
                 if (GAME.currentLevelName === 'TutorialLevel' && !this.scamSet.size) {
-                    this.level.createTutorialText(2);
+                    this.level.createTutorialText(5);
                 }
                 this.activeScams.push(randomTileTypeNumber);
                 if (scamType == 'splitter') {
@@ -179,8 +187,14 @@ export default class ScamsGenerator {
             }
         }, 5);
         setTimeout(() => {
-            scamAnimation.pause();
-            scams.dispose();
+            var trigger = setInterval(() => {
+                if(!GAME.isPaused) {
+                    scamAnimation.pause();
+                    scams.dispose();
+                    this.removeActiveScam(randomTileTypeNumber);
+                    clearInterval(trigger);
+                }
+            }, 100);            
         }, 10000);
     }
 
@@ -421,8 +435,14 @@ export default class ScamsGenerator {
                 }
             }, 5);
             setTimeout(() => {
-                scamAnimation.pause();
-                scams[index].dispose();
+                var trigger = setInterval(() => {
+                    if(!GAME.isPaused) {
+                        scamAnimation.pause();
+                        scams[index].dispose();                
+                        this.removeActiveScam(randomTileTypeNumber);
+                        clearInterval(trigger);
+                    }
+                }, 100);
             }, 8000);
         }
     }

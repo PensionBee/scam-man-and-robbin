@@ -41,7 +41,9 @@ export default class Game {
         this.canvas = document.getElementById("renderCanvas");
 
         this.engine = new BABYLON.Engine(this.canvas, false);
-
+        this.audioEngine = new BABYLON.AudioEngine;
+        this.audioEngine.useCustomUnlockedButton = true;
+        
         this.currentLevel = null;
         this.currentLevelName = 'HomeMenuLevel';
 
@@ -159,6 +161,7 @@ export default class Game {
         // });
 
         hammertime.on('swipeup', (ev) => {
+            ev.preventDefault();
             this.keys.shoot = 1;
 
             // Resets the key after some milleseconds
@@ -254,7 +257,7 @@ export default class Game {
         if (navigator.userAgent.match(/Android/i)
             || navigator.userAgent.match(/webOS/i)
             || navigator.userAgent.match(/iPhone/i)
-            || navigator.userAgent.match(/iPad/i)
+            // || navigator.userAgent.match(/iPad/i)
             || navigator.userAgent.match(/iPod/i)
             || navigator.userAgent.match(/BlackBerry/i)
             || navigator.userAgent.match(/Windows Phone/i)) {
@@ -262,6 +265,21 @@ export default class Game {
         }
 
         return false;
+    }
+
+    isPad(){
+        const ua = window.navigator.userAgent;
+        if (ua.indexOf('iPad') > -1) {
+            return true;
+        }
+    
+        if (ua.indexOf('Macintosh') > -1) {
+            try {
+                return true;
+            } catch (e) {}
+        }
+ 
+    return false;
     }
 
 }
