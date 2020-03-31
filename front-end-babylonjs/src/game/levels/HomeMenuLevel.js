@@ -29,18 +29,23 @@ export default class HomeMenuLevel extends Level {
 
         var menu = new UI('homeMenuUI');
         var click = this.assets.getSound('selectSound');
-        menu.addImage('Logo',{
-            'imgpath' : "assets/scenes/scam-man-fulltitle-mainpage.png",
-            'strech' : BABYLON.GUI.Image.stretch_uniform,
+        menu.addImage('background',{
+            'imgpath' : "assets/scenes/Start_screen_background.png",
+            'width' : 1,
+            'height' : 1,
+        });
+        menu.addImage('LOGO',{
+            'imgpath' : "assets/scenes/scamman_logo.png",
             'width' : 0.7,
-            'height' : 0.6,
+            'height' : 0.38,
             'verticalAlignment' : BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP,
-            'top' : '100px' 
+            'top' : Math.floor((GAME.engine.getRenderHeight()*3/100)),
         });
         menu.addImgButton('playButton', {
-            'imgpath' : "assets/scenes/Start_button.png",
-            'width' : 0.25,
-            'top' : Math.floor((GAME.engine.getRenderHeight()*80/100)),
+            'imgpath' : "assets/scenes/Start_v2.png",
+            'height' : GAME.isPad() ? '100px':'55px' ,
+            'width' : 0.45,
+            'top' : Math.floor((GAME.engine.getRenderHeight()*50/100)),
             'verticalAlignment' : BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP,
             'onclick': () => {
                 click.play();

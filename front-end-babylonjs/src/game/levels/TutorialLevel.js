@@ -66,7 +66,7 @@ export default class TutorialLevel extends Level {
 
         // this.createGameStats();
         // Sets the active camera
-        var camera = this.createCamera();
+        let camera = this.createCamera();
         this.scene.activeCamera = camera;
 
         //Light direction is directly down from a position one unit up, fast decay
@@ -104,20 +104,21 @@ export default class TutorialLevel extends Level {
      */
     createTutorialText(messageNumber) {
         GAME.pause();
+        this.activeMessage = true;
         this.player.infoSound.play();
 
         this.robbinFlapSpriteManager = new BABYLON.SpriteManager("robbinFlapSpriteManager", "assets/scenes/robin_flap_1.png", 1, { width: 65, height: 62 }, this.scene)
-        var robbinFlap = new BABYLON.Sprite("player", this.robbinFlapSpriteManager);
+        let robbinFlap = new BABYLON.Sprite("player", this.robbinFlapSpriteManager);
         robbinFlap.playAnimation(0, 5, true, 100);
         robbinFlap.position = new BABYLON.Vector3(-1, 2, -1);
 
-        let text = '', height = 0.2;
+        let text = '', height = 0.15;
         if (messageNumber == 1) {
             text = 'Welcome to Scam Man and Robbin’! \n\n You are Scam Man, a cloaked vigilante who’s on a mission to protect people’s pensions from scams. \n\n I’m Robbin’, and I’m here to help you!';
-            height = 0.42;
+            height = 0.35;
         } else if (messageNumber == 2) {
             text = 'You must correctly identify six of the most common pension scams and destroy them. \n\n Collect the bonuses and coins to build a healthy pension pot and be in with a chance of winning. ';
-            height = 0.38;
+            height = 0.31;
         } else if (messageNumber == 3) {
             text = (GAME.isMobile() || GAME.isPad()) ? 'Swipe left and right on the screen to move in each direction…' : 'Use left and right arrow keys to move in each direction…';
         } else if (messageNumber == 4) {
@@ -127,31 +128,49 @@ export default class TutorialLevel extends Level {
         } else if (messageNumber == 6) {
             text = 'Be sure to collect any bonuses that fall, but don’t shine your torch on them as this will destroy them…';
         }
-        var hud = new UI('stageLoadingUI', true);
-        var menuTexture = hud.menuTexture;
+        let hud = new UI('stageLoadingUI', true);
+        let menuTexture = hud.menuTexture;
+
+        let background = new BABYLON.GUI.Rectangle();
+        background.width = 1;
+        background.height = 1;
+        background.thickness = 0;
+        background.background = "grey";
+        background.alpha = 0.75;
+        menuTexture.addControl(background);
 
         // Tutorial Frame
         let image = new BABYLON.GUI.Image("icon", "assets/scenes/tutorial_plate.png");
         image.width = 1;
         image.height = height;
-        image.top = (GAME.engine.getRenderHeight() * 10) / 100;
+        image.top = (GAME.engine.getRenderHeight() * 16) / 100;
         image.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
         image.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
         menuTexture.addControl(image);
 
+        
+        // Tutorial Frame
+        let robinName = new BABYLON.GUI.Image("icon", "assets/scenes/tutorial_plate_robin.png");
+        robinName.width = 0.22;
+        robinName.height = 0.051;
+        robinName.top = (GAME.engine.getRenderHeight() * 11) / 100;
+        robinName.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT;
+        robinName.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
+        menuTexture.addControl(robinName);
+
         // Message Frame
-        var rectBox = new BABYLON.GUI.Rectangle();
-        rectBox.width = 0.71;
+        let rectBox = new BABYLON.GUI.Rectangle();
+        rectBox.width = 0.7;
         rectBox.height = height;
         rectBox.left = '-15px';
-        rectBox.top = (GAME.engine.getRenderHeight() * (height== 0.2 ? 12 : 13)) / 100;
+        rectBox.top = (GAME.engine.getRenderHeight() * (height == 0.15 ? 15 : 15)) / 100;
         rectBox.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT;
         rectBox.verticalAlignment = BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
         rectBox.thickness = 0;
         menuTexture.addControl(rectBox);
 
         // Message Content
-        var textControl = new BABYLON.GUI.TextBlock();
+        let textControl = new BABYLON.GUI.TextBlock();
         textControl.text = text;
         textControl.fontSize = GAME.engine.getRenderHeight() < 600 ? 11 : 14;
         textControl.textHorizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
@@ -160,20 +179,30 @@ export default class TutorialLevel extends Level {
         textControl.fontFamily = "'Tomorrow',sans-serif";
         rectBox.addControl(textControl);
 
+        
+        var trigger = setInterval(() => {
+            this.skipControl.thickness = this.skipControl.thickness ? 0 : 1.5
+        }, 300);
         // Skip Button
         this.skipControl = hud.addImgButton('continueBtn', {
             'imgpath': "assets/scenes/Continue.png",
-            'top': ((GAME.engine.getRenderHeight() * ((height + 0.1) * 100)) / 100),
+            'top': ((GAME.engine.getRenderHeight() * ((height + 0.16) * 100)) / 100),
             'width': 0.2,
-            'height': 0.05,
-            'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
+            'height': 0.055,
+            'thickness': 1.5,
+            'color': 'white',
+            'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
             'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP,
             'onclick': () => {
                 robbinFlap.dispose();
                 image.dispose();
+                robinName.dispose();
                 rectBox.dispose();
                 textControl.dispose();
+                clearInterval(trigger);
                 this.skipControl.dispose();
+                background.dispose();
+                this.activeMessage = false;
                 GAME.resume();
                 if (messageNumber < 4) {
                     this.createTutorialText(messageNumber + 1);
@@ -183,7 +212,7 @@ export default class TutorialLevel extends Level {
 
         if (messageNumber == 1) {
             // Top Header
-            var modeDis = new BABYLON.GUI.Rectangle();
+            let modeDis = new BABYLON.GUI.Rectangle();
             modeDis.width = 1;
             modeDis.height = 0.1;
             modeDis.horizontalAlignment = BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
@@ -192,7 +221,7 @@ export default class TutorialLevel extends Level {
             modeDis.background = "#45186e";
             menuTexture.addControl(modeDis);
 
-            var modeControl = new BABYLON.GUI.TextBlock();
+            let modeControl = new BABYLON.GUI.TextBlock();
             modeControl.text = 'Tutorial Mode';
             modeControl.color = 'white'
             modeControl.fontSize = 15;
@@ -203,7 +232,7 @@ export default class TutorialLevel extends Level {
             modeDis.addControl(modeControl);
         }
 
-        var cornerSphere = function (scene) {
+        let cornerSphere = function (scene) {
             let frustumPlanes = BABYLON.Frustum.GetPlanes(scene.activeCamera.getTransformationMatrix());
             let d = frustumPlanes[0].d;
             let aspectRatio = GAME.engine.getAspectRatio(scene.activeCamera);
@@ -214,7 +243,7 @@ export default class TutorialLevel extends Level {
             let z = d;
 
             robbinFlap.position.x = -x + 1;
-            robbinFlap.position.y = y - (2.2 + (height== 0.2 ? 0 : 1));
+            robbinFlap.position.y = y - (2.2 + (height == 0.15 ? 0.1 : 1.2));
             robbinFlap.position.z = z;
             robbinFlap.size = 1.5;
         }
@@ -260,7 +289,7 @@ export default class TutorialLevel extends Level {
             this.player.gameEnded = true;
             clearInterval(this.speedTrigger);
             this.player.mesh.material.alpha = 0;
-            var player = new BABYLON.Sprite("player", this.player.spriteManagerPlayer['lose']);
+            let player = new BABYLON.Sprite("player", this.player.spriteManagerPlayer['lose']);
             player.position = this.player.mesh.position;
             player.position = new BABYLON.Vector3(this.player.mesh.position.x, this.player.mesh.position.y - 0.2, 0);
             player.size = 0.8;
@@ -286,8 +315,8 @@ export default class TutorialLevel extends Level {
             this.player.soundUnMuteButtonControl.isVisible = false;
         }
 
-        var trigger = setInterval(() => {
-            if(this.currentTimeLength >= GAME.options.tutorialLength) {
+        let trigger = setInterval(() => {
+            if (this.currentTimeLength >= GAME.options.tutorialLength) {
                 this.freezeGeneration = true;
                 // After all game objects are done start game
                 setTimeout(() => {
@@ -298,13 +327,14 @@ export default class TutorialLevel extends Level {
                 }, 3000);
                 clearInterval(trigger);
             }
-            if(this.currentTimeLength === 7) {
+            if (this.currentTimeLength === 7) {
                 this.scams.generate();
             }
-            if(this.currentTimeLength === 15) {
+            if (this.currentTimeLength === 18) {
+                this.player.freezeScams = true;
                 this.boons.generate();
             }
-            if(!GAME.isPaused()) {
+            if (!GAME.isPaused()) {
                 this.currentTimeLength += 1;
             }
         }, 1000);
@@ -317,7 +347,6 @@ export default class TutorialLevel extends Level {
         if (!GAME.isPaused()) {
             this.player.pauseButtonControl.isVisible = true;
             this.player.coinsTextControl.isVisible = false;
-            this.player.skipControl.isVisible = true;
             this.player.move();
             if (!this.player.beamEnabled && this.player.changePosition && !this.player.playerLanding && !this.player.gameEnded && this.nextStage) {
                 this.player.mesh.material.alpha = 1;
@@ -330,6 +359,7 @@ export default class TutorialLevel extends Level {
                     this.nextStage = 1;
                     this.player.landPlayer();
                     this.createTutorialText(1);
+                    this.player.skipControl.isVisible = true;
                 }, 2000);
                 this.freezeGeneration = true;
                 this.gameStarted = true;

@@ -1,5 +1,11 @@
 {
     "message" : {
+        "generic_scam" : {
+            "name" : "tutorial_scam",
+            "info" : "Generic Scam",
+            "icon" : "Red Border logo",
+            "path" : "assets/scenes/Generic_scam.png"
+        },
         "normal_scam" : {
             "name" : "Cold call:",
             "info" : "You receive a cold call about your pension",

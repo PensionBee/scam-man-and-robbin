@@ -35,7 +35,7 @@ export default class BoonsGenerator {
      */
     createCommonMaterials() {
         this.boonMaterial = new BABYLON.StandardMaterial("boonMaterial", this.scene);
-        this.boonMaterial.diffuseTexture = new BABYLON.Texture("assets/scenes/Refuse.png", this.scene);
+        this.boonMaterial.diffuseTexture = new BABYLON.Texture("assets/scenes/Refuse_v2.png", this.scene);
         this.boonMaterial.diffuseTexture.hasAlpha = true;
         this.boonMaterial.backFaceCulling = true;
 
@@ -55,12 +55,15 @@ export default class BoonsGenerator {
                 // Append boons from previous stage and include current stage boons
                 this.boonTypes = [];
                 for (let index = 1; index <= this.level.nextStage; index++) {
-                    var scamList = stages["stage_" + (this.level.nextStage - index)]["boons"]
-                    scamList.forEach(element => {
-                        if(this.boonTypes.indexOf(element) === -1) {
-                            this.boonTypes.push(element);
-                        }
-                    });
+                    var stage = this.level.nextStage - index;
+                    if(stage || GAME.currentLevelName === 'TutorialLevel') {
+                        var scamList = stages["stage_" + (this.level.nextStage - index)]["boons"]
+                        scamList.forEach(element => {
+                            if(this.boonTypes.indexOf(element) === -1) {
+                                this.boonTypes.push(element);
+                            }
+                        });
+                    }
                 }
 
 
@@ -94,7 +97,7 @@ export default class BoonsGenerator {
                     this.boonSet.add(boonType);
                 }
             }
-        }, 11000);
+        }, GAME.currentLevelName === 'TutorialLevel' ? 4000 : 11000);
     }
 
 
@@ -104,7 +107,6 @@ export default class BoonsGenerator {
      * Currently only one type of Boon Entity
      */
     createBoons(type, randomTileTypeNumber) {
-
         // To position boon objects on different lanes randomly Default to Middle Lane
         let randomPositionChooser = Math.floor((Math.random() * 100)); // 0 to 100 random number
         let positionX = 0;

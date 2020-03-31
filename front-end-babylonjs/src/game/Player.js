@@ -26,6 +26,7 @@ export default class Player {
         this.pauseButtonControl = null;
         this.lastScamId = null;
         this.gameEnded = false;
+        this.freezeScams = false;
         this.createCommonMaterials();
         this.setupPlayer();
     }
@@ -133,8 +134,8 @@ export default class Player {
             this.coinsTextControl.isVisible = false;
             this.moneyBar.isVisible = false;
             this.potImg.isVisible = false;
-            this.skipControl = this.hud.addImgButton('continueBtn', {
-                'imgpath': "assets/scenes/Continue.png",
+            this.skipControl = this.hud.addImgButton('SkipBtn', {
+                'imgpath': "assets/scenes/Skip_tutorial.png",
                 'top': -(GAME.engine.getRenderHeight()*1)/100,
                 'width': 0.2,
                 'height' : 0.05,
@@ -145,6 +146,7 @@ export default class Player {
                     GAME.goToLevel('RunnerLevel');
                 }
             });
+            this.skipControl.isVisible = false;
         }
 
         this.pauseButtonControl = this.hud.addImgButton('PAUSE', {
@@ -232,7 +234,9 @@ export default class Player {
             'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
             'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,
             'onclick' : () =>{
-                GAME.resume();
+                if(!this.level.activeMessage) {
+                    GAME.resume();
+                }
                 this.pausedImage.isVisible = false;
                 this.resumeButton.isVisible = false;
                 this.pauseButtonControl.isVisible = true;
