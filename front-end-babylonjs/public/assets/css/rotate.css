@@ -49,7 +49,7 @@
 @media (min-width: 1281px) {
   
     #renderCanvas{ 
-        width: 40% !important;
+        width: 100% !important;
     }
     #turn{ display:none; }
     #renderCanvas{ display:block; }
@@ -64,7 +64,7 @@
   @media (min-width: 1025px) and (max-width: 1280px) {
     
     #renderCanvas{ 
-        width: 40% !important;
+        width: 100% !important;
     }
     #turn{ display:none; }
     #renderCanvas{ display:block; }
@@ -94,6 +94,7 @@
   @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     
     #turn{ display:block; }
+    .device {display: none !important;}
     #renderCanvas{ display:none; }
     
   }
@@ -106,6 +107,7 @@
   @media (min-width: 481px) and (max-width: 767px) {
     
     #turn{ display:block; }
+    .device {display: none !important; }
     #renderCanvas{ display:none; }
     
   }
@@ -119,5 +121,17 @@
     
     #turn{ display:none; }
     #renderCanvas{ display:block; }
+    .device > .device-frame > #renderCanvas {
+      visibility: visible;
+      width: 100% !important;
+      height: 100% !important;
+    }
+    .device, .device-frame{
+        visibility: hidden;
+        width: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
     
   }

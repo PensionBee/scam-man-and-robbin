@@ -142,7 +142,10 @@ export default class Player {
                 'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
                 'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,
                 'onclick': () => {
-                    this.gameEnded = true;
+                    this.gameEnded = true;                    
+                    clearInterval(this.level.scams.trigger);
+                    clearInterval(this.level.boons.trigger);
+                    clearInterval(this.level.tutorialTrigger);
                     GAME.goToLevel('RunnerLevel');
                 }
             });
@@ -175,9 +178,9 @@ export default class Player {
                 // this.message.pauseScreen(this.coins, this.scamCount, this.boonCount, this.level.scams ? this.level.scams.scamSet : null)
                 // this.soundMuteButtonControl.isVisible = false;
                 // this.soundUnMuteButtonControl.isVisible = false;
-                if (this.skipControl) {
-                    this.skipControl.isVisible = false;
-                }
+                // if (this.skipControl) {
+                //     this.skipControl.isVisible = false;
+                // }
             }
         });
         this.pausedImage = this.hud.addImage('PAUSED',{
@@ -236,6 +239,9 @@ export default class Player {
             'onclick' : () =>{
                 if(!this.level.activeMessage) {
                     GAME.resume();
+                }
+                if (this.skipControl) {
+                    this.skipControl.isVisible = true;
                 }
                 this.pausedImage.isVisible = false;
                 this.resumeButton.isVisible = false;
@@ -367,7 +373,7 @@ export default class Player {
     */
     checkDirectionMovement() {
         if (GAME.keys.left && !this.gameEnded && !this.playerLanding) {
-            if (this.changePosition && this.mesh.position.x > (GAME.isMobile() ? -1 : -1.5)) {
+            if (this.changePosition && this.mesh.position.x > (GAME.isMobile() ? -1 : -1)) {
                 this.movementSound.play();
                 this.changePosition = false;
                 if (this.shootAction) {
@@ -393,7 +399,7 @@ export default class Player {
             }
         }
         if (GAME.keys.right && !this.gameEnded && !this.playerLanding) {
-            if (this.changePosition && this.mesh.position.x < (GAME.isMobile() ? 1 : 1.5)) {
+            if (this.changePosition && this.mesh.position.x < (GAME.isMobile() ? 1 : 1)) {
                 this.movementSound.play();
                 this.changePosition = false;
                 if (this.shootAction) {
@@ -432,9 +438,9 @@ export default class Player {
         var frameCounter = 0, value = 0;
         for (let index = 0; index < 5; index++) {
             if (type == 'left') {
-                value += (GAME.isMobile() ? -0.2 : -0.3);
+                value += (GAME.isMobile() ? -0.2 : -0.2);
             } else {
-                value += (GAME.isMobile() ? 0.2 : 0.3);
+                value += (GAME.isMobile() ? 0.2 : 0.2);
             }
             keys.push({ frame: frameCounter, value: startValue + value });
             frameCounter += 15;

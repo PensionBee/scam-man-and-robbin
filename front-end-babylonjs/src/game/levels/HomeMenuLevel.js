@@ -29,11 +29,6 @@ export default class HomeMenuLevel extends Level {
 
         var menu = new UI('homeMenuUI');
         var click = this.assets.getSound('selectSound');
-        menu.addImage('background',{
-            'imgpath' : "assets/scenes/Start_screen_background.png",
-            'width' : 1,
-            'height' : 1,
-        });
         menu.addImage('LOGO',{
             'imgpath' : "assets/scenes/scamman_logo.png",
             'width' : 0.7,
@@ -43,11 +38,12 @@ export default class HomeMenuLevel extends Level {
         });
         menu.addImgButton('playButton', {
             'imgpath' : "assets/scenes/Start_v2.png",
-            'height' : GAME.isPad() ? '100px':'55px' ,
-            'width' : 0.45,
-            'top' : Math.floor((GAME.engine.getRenderHeight()*50/100)),
+            'height' : '60px',
+            'width' : 0.55,
+            'top' : Math.floor((GAME.engine.getRenderHeight()*48/100)),
             'verticalAlignment' : BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP,
             'onclick': () => {
+                BABYLON.Engine.audioEngine.unlock();
                 click.play();
                 GAME.goToLevel('TutorialLevel')
             }

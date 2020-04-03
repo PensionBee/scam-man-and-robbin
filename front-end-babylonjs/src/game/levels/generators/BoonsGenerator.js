@@ -49,7 +49,7 @@ export default class BoonsGenerator {
     generate() {
 
         // New boons keep generating every 10 second
-        setInterval(() => {
+        this.trigger = setInterval(() => {
             if (!GAME.isPaused() && this.player && this.player.lives && this.level.age < 65 && !this.level.freezeGeneration && this.scene) {
                 
                 // Append boons from previous stage and include current stage boons
@@ -111,22 +111,21 @@ export default class BoonsGenerator {
         let randomPositionChooser = Math.floor((Math.random() * 100)); // 0 to 100 random number
         let positionX = 0;
         if (randomPositionChooser >= 0 && randomPositionChooser < 30) {
-            positionX = GAME.isMobile() ? -1 : -1.5; // Positining on the left
+            positionX = GAME.isMobile() ? -1 : -1; // Positining on the left
         }
 
         if (randomPositionChooser >= 30) {
             positionX = 0;
         }
         if (randomPositionChooser >= 60) {
-            positionX = GAME.isMobile() ? 1 : 1.5; // Positioning on the right
+            positionX = GAME.isMobile() ? 1 : 1; // Positioning on the right
         }
-        let boonDiameter = GAME.isMobile() ? 0.35 : 0.4;
+        let boonDiameter = GAME.isMobile() ? 0.45 : 0.45;
         let boons = BABYLON.MeshBuilder.CreateBox("boon_" + randomPositionChooser, {
             width: boonDiameter,
             height: boonDiameter,
             depth: 0.001
         }, this.scene);
-
         boons.material = this.level.getMaterial('boonMaterial');
         boons.material.diffuseTexture.hasAlpha = true;
         boons.position.x = positionX;
