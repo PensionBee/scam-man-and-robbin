@@ -11,97 +11,103 @@
             "info" : "You receive a cold call about your pension",
             "icon" : "FCA logo",
             "reduction" : 400,
-            "path" : "assets/scenes/jmanassets/cold-call.png"
+            "path" : "assets/scenes/Scams/cold-call.png"
         },
         "accelerator" : {
             "name" : "Free advice:",
             "info" : "You accept ‘free’ financial advice",
             "icon" : "pound signs with a cross through it",
             "reduction" : 300,
-            "path" : "assets/scenes/jmanassets/free-advice.png"
+            "path" : "assets/scenes/Scams/free-advice.png"
         },
         "speedy" : {
             "name" : "Time pressure:",
             "info" : "You feel pressured to make an immediate decision",
             "icon" : " clock",
             "reduction" : 600,
-            "path" : "assets/scenes/jmanassets/time-pressure.png"
+            "path" : "assets/scenes/Scams/time-pressure.png"
         },
         "zig_zag" : {
             "name" : "False claims:",
             "info" : "You let an unknown provider convince you to make changes",
             "icon" : "a phone",
             "reduction" : 500,
-            "path" : "assets/scenes/jmanassets/fake-vigilant.png"
+            "path" : "assets/scenes/Scams/fake-vigilant.png"
         },
         "splitter" : {
             "name" : "Early access:",
             "info" : " You’re promised access to your pension before you turn 55" ,
             "icon" : "a non-standard coloured coin",
             "reduction" : 800,
-            "path" : "assets/scenes/jmanassets/early-withdrawl.png"
+            "path" : "assets/scenes/Scams/early-withdrawl.png"
         },
         "black_out" : {
             "name" : "Black out:",
             "info" : "You engaged with a company because they offered a unique or limited investment opportunity",
             "icon" : "something unusual",
             "reduction" : 500,
-            "path" : "assets/scenes/jmanassets/scam.png"
+            "path" : "assets/scenes/Scams/scam.png"
         },
         "diagonal" : {
             "name" : "Safe Haven:",
             "info" : "You move your pension to a ‘safe haven’ during the coronavirus pandemic",
             "icon" : "mini scam man",
             "reduction" : 400,
-            "path" : "assets/scenes/jmanassets/cold-call.png"
+            "path" : "assets/scenes/Scams/Virus.png"
+        },
+        "generic_boon" : {
+            "name" : "Tutorial boon",
+            "info" : "Generic Boon",
+            "icon" : "Green Border logo",
+            "path" : "assets/scenes/Bonus.png"
         },
         "normal_boon" : {
             "name" : "Boon:",
             "info" : "Check FCA registered - get FCA number",
             "icon" : "FCA logo",
             "reduction" : 100,
-            "path" : "assets/scenes/jmanassets/refuse.png"
+            "path" : "assets/scenes/Boons/refuse.png"
         },
         "refuse" : {
             "name" : "Hang up:",
             "info" : "You refuse to discuss your pension with strangers",
             "icon" : "FCA logo",
-            "path" : "assets/scenes/jmanassets/refuse.png",
+            "path" : "assets/scenes/Boons/refuse.png",
             "addition" : 100            
         },
         "pension_wise" : {
             "name" : "Reject unsolicited advice:",
             "info" : "You get impartial information from Pension Wise",
             "icon" : "FCA logo",
-            "path" : "assets/scenes/jmanassets/Pensionwise.png",
+            "path" : "assets/scenes/Boons/Pensionwise.png",
             "addition" : 200            
         },
         "thinking_about" : {
             "name" : "Ask for more time:",
             "info" : "You take your time and won’t be rushed",
             "icon" : "FCA logo",
-            "path" : "assets/scenes/jmanassets/think-about-it.png",
+            "path" : "assets/scenes/Boons/think-about-it.png",
             "addition" : 300            
         },
         "invisiblity_boon" : {
             "name" : "Do your homework:",
             "info" : "You check the FCA’s Financial Services Register*",
             "icon" : "FCA logo",
-            "path" : "assets/scenes/jmanassets/fca.png",
+            "path" : "assets/scenes/Boons/fca.png",
             "addition" : 400
         },
         "dont_transfer" : {
             "name" : "You wait until you turn 55:",
             "info" : "You refuse to transfer your pension for early withdrawal",
             "icon" : "FCA logo",
-            "path" : "assets/scenes/jmanassets/dont-transfer.png",
+            "path" : "assets/scenes/Boons/dont-transfer.png",
             "addition" : 500
         },
         "no_rash_decision": {
             "name" : "No rash decisions:",
             "info" : "You refuse to move your pension for coronavirus protection",
             "icon" : "FCA logo",
-            "path" : "assets/scenes/Don't_transfer_v2.png",
+            "path" : "assets/scenes/Boons/no_rash_decisions.png",
             "addition" : 500
         }
     }

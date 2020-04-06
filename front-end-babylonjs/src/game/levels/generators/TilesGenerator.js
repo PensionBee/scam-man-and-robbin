@@ -22,18 +22,10 @@ export default class TilesGenerator {
      */
     createCommonMaterials() {
 
-        // let coinMaterial = new BABYLON.StandardMaterial('coinMaterial', this.scene);
-        // coinMaterial.diffuseColor = new BABYLON.Color3.Yellow();
-        // coinMaterial.emissiveColor = new BABYLON.Color3.Yellow();
-        // coinMaterial.specularColor = new BABYLON.Color3.Yellow();
-
         let coinMaterial = new BABYLON.StandardMaterial("coinMaterial", this.scene);
         coinMaterial.diffuseTexture = new BABYLON.Texture("assets/scenes/jmanassets/coin.png", this.scene);
         coinMaterial.diffuseTexture.hasAlpha = true;
         coinMaterial.backFaceCulling = true;
-
-        // Freeze materials to improve performance (this material will not be modified)
-        // coinMaterial.freeze();
 
         this.level.addMaterial(coinMaterial);
 
@@ -73,7 +65,7 @@ export default class TilesGenerator {
             positionX = GAME.isMobile() ? 1 : 1; // Positioning on the right
         }
         this.activeCoins.push(randomPositionChooser);
-        let coinDiameter = GAME.isMobile() ? 0.3 : 0.4;
+        let coinDiameter = 0.32;
         let coins = BABYLON.Mesh.CreateCylinder("coin", 0.01, coinDiameter, coinDiameter, 16, 0, this.scene);
         coins.material = this.level.getMaterial('coinMaterial');
         coins.position.x = positionX;
@@ -89,7 +81,7 @@ export default class TilesGenerator {
          * @todo Currently we have set up passive coin collection. 
          * Incase of collectable action change here
          */
-        var trigger = setInterval(() => {
+        let trigger = setInterval(() => {
             if (groundPlane.intersectsMesh(coins, false)) {
                 coins.dispose();
                 this.removeActiveCoin(randomPositionChooser);
@@ -115,7 +107,7 @@ export default class TilesGenerator {
             }
         }, 10);
         setTimeout(() => {
-            var trigger = setInterval(() => {
+            let trigger = setInterval(() => {
                 if(!GAME.isPaused) {
                     coinAnimation.pause();
                     coins.dispose();
@@ -152,7 +144,7 @@ export default class TilesGenerator {
     }
 
     removeActiveCoin(randomTileTypeNumber) {
-        var index = this.activeCoins.indexOf(randomTileTypeNumber);
+        let index = this.activeCoins.indexOf(randomTileTypeNumber);
         if (index !== -1) this.activeCoins.splice(index, 1);
     }
 

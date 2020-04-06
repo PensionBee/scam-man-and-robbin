@@ -35,7 +35,7 @@ export default class Player {
      * Initial Dev - Simple Purple Color Texture
      */
     createCommonMaterials() {
-        var playerMaterial = new BABYLON.StandardMaterial("playerMaterial", this.scene);
+        let playerMaterial = new BABYLON.StandardMaterial("playerMaterial", this.scene);
         playerMaterial.diffuseTexture = new BABYLON.Texture("assets/scenes/Standing 1 1.png", this.scene);
         playerMaterial.diffuseTexture.hasAlpha = true;
         playerMaterial.backFaceCulling = true;
@@ -101,31 +101,32 @@ export default class Player {
             'imgpath' : "assets/scenes/ground_image.png",
             'width' : 1,
             'isVisible': true,
-            'height' : 0.07,
-            'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM
-        });
-        this.potImg = this.hud.addImage('potImage',{
-            'imgpath' : "assets/scenes/pot.png",
-            "width" : 0.07,
-            "height" : 0.05,
-            // 'top' : GAME.isMobile() ? '-32px' : '-42px',
-            'top' : Math.floor(-(GAME.engine.getRenderHeight()/20)), 
-            'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
+            'height' : 0.075,
             'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM
         });
         this.moneyBar = this.hud.addImage('moneyBar',{
             'imgpath' : "assets/scenes/moneybar.png",
             "width" : 0.4,
-            "height" : 0.032,
-            'top' : '-6px',
+            "height" : 0.05,
+            'top' : Math.floor(-(GAME.engine.getRenderHeight()*1/100)),
+            "left": Math.floor((GAME.engine.getRenderWidth()*2/100)),
+            'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
+            'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM
+        });
+        this.potImg = this.hud.addImage('potImage',{
+            'imgpath' : "assets/scenes/pot.png",
+            "width" : 0.09,
+            "height" : 0.055,
+            'top' : Math.floor(-(GAME.engine.getRenderHeight()*0.8/100)), 
+            "left": Math.floor(-(GAME.engine.getRenderWidth()*20/100)),
             'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
             'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM
         });
         this.coinsTextControl = this.hud.addText('£ 0', {
-            // 'top': '-7px',
-            'top' : Math.floor(-(GAME.engine.getRenderHeight()*1/100)),
-            'left': '-5px',
-            'fontSize': '15px',
+            'top' : Math.floor(-(GAME.engine.getRenderHeight()*2.1/100)),
+            "left": "4px",
+            'fontSize': '16px',
+            'fontStyle': 'bold',
             'color' : '#FFFF99',
             'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER,
             'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM
@@ -154,38 +155,26 @@ export default class Player {
 
         this.pauseButtonControl = this.hud.addImgButton('PAUSE', {
             'imgpath' : "assets/scenes/pause.png",
-            // 'width': (GAME.isMobile() ? 0.15 : 0.1),
-            'width': 0.1,
+            'width': 0.12,
             'height': 0.08,
             'top' : Math.floor(-(GAME.engine.getRenderHeight()*1.5/100)),
             'left': '-25px',
             'isVisible': true,
-            // 'fontSize': '10em',
             'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_RIGHT,
             'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,
             'onclick': () => {
                 this.selectSound.play();
-                // this.coinsTextControl.isVisible = false;
-                // this.pauseButtonControl.isVisible = false;
-                // this.soundMuteButtonControl.isVisible = false;
-                // this.soundUnMuteButtonControl.isVisible = false;
-                // this.groundImg.isVisible = false ;
                 GAME.pause();
                 this.resumeButton.isVisible = true;
                 this.pauseButtonControl.isVisible = false;
                 this.pausedImage.isVisible = true;
-
-                // this.message.pauseScreen(this.coins, this.scamCount, this.boonCount, this.level.scams ? this.level.scams.scamSet : null)
-                // this.soundMuteButtonControl.isVisible = false;
-                // this.soundUnMuteButtonControl.isVisible = false;
-                // if (this.skipControl) {
-                //     this.skipControl.isVisible = false;
-                // }
+                if (this.level.skipControl) {
+                    this.level.skipControl.isVisible = false;
+                }
             }
         });
         this.pausedImage = this.hud.addImage('PAUSED',{
             'imgpath' : "assets/scenes/PausedScreen.png",
-            // 'width': (GAME.isMobile() ? 0.15 : 0.1),
             'width': 0.5,
             'height': 0.1,
             'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_CENTER,
@@ -193,13 +182,11 @@ export default class Player {
         this.pausedImage.isVisible = false;
         this.soundMuteButtonControl = this.hud.addImgButton('MUTE', {
             'imgpath' : "assets/scenes/music_on.png",
-            'width' : 0.1,
-            // 'width': (GAME.isMobile() ? 0.15 : 0.1),
+            'width' : 0.12,
             'height': 0.08,
             'top' : Math.floor(-(GAME.engine.getRenderHeight()*1.5/100)),
             'left': '25px',
             'isVisible': true,
-            // 'fontSize': '10em',
             'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
             'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,
             'onclick': () => {
@@ -210,14 +197,12 @@ export default class Player {
             }
         });
         this.soundUnMuteButtonControl = this.hud.addImgButton('UNMUTE', {
-            // 'width': (GAME.isMobile() ? 0.15 : 0.1),
             'imgpath' : "assets/scenes/music_off.png",
-            'width' : 0.1,
+            'width' : 0.12,
             'height': 0.08,
             'top' : Math.floor(-(GAME.engine.getRenderHeight()*1.5/100)),
             'left': '25px',
             'isVisible': true,
-            // 'fontSize': '10em',
             'horizontalAlignment': BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_LEFT,
             'verticalAlignment': BABYLON.GUI.Control.VERTICAL_ALIGNMENT_BOTTOM,
             'onclick': () => {
@@ -230,7 +215,7 @@ export default class Player {
         });
         this.resumeButton = this.hud.addImgButton('RESUME',{
             'imgpath' : "assets/scenes/Play_Button.png",
-            'width' : 0.1,
+            'width' : 0.12,
             'height': 0.08,
             'top' : Math.floor(-(GAME.engine.getRenderHeight()*1.5/100)),
             'left': '-25px',
@@ -242,6 +227,9 @@ export default class Player {
                 }
                 if (this.skipControl) {
                     this.skipControl.isVisible = true;
+                }
+                if (this.level.skipControl) {
+                    this.level.skipControl.isVisible = true;
                 }
                 this.pausedImage.isVisible = false;
                 this.resumeButton.isVisible = false;
@@ -272,7 +260,7 @@ export default class Player {
     * Function to handle Pension Pot visual.
     */
     handlePot() {
-        var url = "";
+        let url = "";
         if(this.coins) {
             url = "assets/scenes/pot low.png";
         }
@@ -293,6 +281,7 @@ export default class Player {
         }
         if(url) {
             this.potImg.source = url;
+            this.potImg.width = 0.09;
         }
         
     }
@@ -319,8 +308,8 @@ export default class Player {
 
             this.scamming = true;
             let newCoins = Math.floor(this.coins - message[this.activeScam].reduction);
-            var factor = Math.floor((this.coins - newCoins) / 10);
-            var trigger = setInterval(() => {
+            let factor = Math.floor((this.coins - newCoins) / 10);
+            let trigger = setInterval(() => {
                 this.coins -= factor;
                 if (this.coins > newCoins) {
                     this.coinsTextControl.text = '£ ' + this.coins;
@@ -380,12 +369,12 @@ export default class Player {
                     this.shootAction.dispose();
                     clearInterval(this.shootTrigger);
                 }
-                var player = new BABYLON.Sprite("player", this.spriteManagerPlayer['left']);
+                let player = new BABYLON.Sprite("player", this.spriteManagerPlayer['left']);
                 player.playAnimation(0, 7, true, 80);
                 player.position = this.mesh.position;
                 player.size = 1.15;
                 player.isPickable = true;
-                var movement = setInterval(() => {
+                let movement = setInterval(() => {
                     player.position = this.mesh.position;
                 }, 24);
                 this.mesh.animations = [];
@@ -406,13 +395,13 @@ export default class Player {
                     this.shootAction.dispose();
                     clearInterval(this.shootTrigger);
                 }
-                var player = new BABYLON.Sprite("player", this.spriteManagerPlayer['right']);
+                let player = new BABYLON.Sprite("player", this.spriteManagerPlayer['right']);
                 // this.mesh.material.alpha = 0;
                 player.playAnimation(0, 7, true, 80);
                 player.position = this.mesh.position;
                 player.size = 1.15;
                 player.isPickable = true;
-                var movement = setInterval(() => {
+                let movement = setInterval(() => {
                     player.position = this.mesh.position;
                 }, 24);
                 this.mesh.animations = [];
@@ -435,7 +424,7 @@ export default class Player {
         let playerMotion = new BABYLON.Animation("playerSideMotion", "position.x", 1000, BABYLON.Animation.ANIMATIONTYPE_FLOAT,
             BABYLON.Animation.ANIMATIONLOOPMODE_CYCLE);
         let keys = [];
-        var frameCounter = 0, value = 0;
+        let frameCounter = 0, value = 0;
         for (let index = 0; index < 5; index++) {
             if (type == 'left') {
                 value += (GAME.isMobile() ? -0.2 : -0.2);
@@ -487,7 +476,7 @@ export default class Player {
                 this.shootAction.dispose();
                 clearInterval(this.shootTrigger);
             }, 700);
-            var trigger = setInterval(() => {
+            let trigger = setInterval(() => {
                 if (!this.changePosition) {
                     this.bullet.dispose();
                     this.beamEnabled = false;
@@ -518,7 +507,7 @@ export default class Player {
     /**
      * Function to handle boon counter.
      * @todo Any other logics in future to be added
-     * 1. Currenly coins are doubled.
+     * 1. Currenly coins are increased based on predefined value.
      */
     keepBoon(boon) {
         this.boonCount++;
@@ -554,9 +543,9 @@ export default class Player {
         let message = Message.message;
         let newCoins = Math.floor(this.coins + message[boon].addition);
         newCoins = newCoins > GAME.options.maxLifetimeAllowance ? GAME.options.maxLifetimeAllowance : newCoins;
-        var factor = Math.floor((newCoins - this.coins) / 10);
+        let factor = Math.floor((newCoins - this.coins) / 10);
         if (factor) {
-            var trigger = setInterval(() => {
+            let trigger = setInterval(() => {
                 this.coins += factor;
                 this.maxCoins = (this.coins > this.maxCoins) ? this.coins : this.maxCoins;
                 if (this.coins < newCoins && this.allowCoinChange) {

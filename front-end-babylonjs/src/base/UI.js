@@ -1,5 +1,4 @@
 import Message from './../../public/message.json';
-import Game from '../Game.js';
 
 export default class UI {
 
@@ -160,7 +159,7 @@ export default class UI {
                 }
             }
         } else {
-            var info = new BABYLON.GUI.TextBlock("CASUAL", "You haven't hit any scams");
+            let info = new BABYLON.GUI.TextBlock("CASUAL", "You haven't hit any scams");
             info.color = 'red'
             info.fontSize = "28em";
             // info.paddingBottom = '150px';
@@ -192,6 +191,7 @@ export default class UI {
         textControl.text = text;
         textControl.color = options.color || 'black';
         textControl.fontSize = options.fontSize || 20;
+        textControl.fontStyle = options.fontStyle || "";
         textControl.outlineWidth = options.outlineWidth || 0;
         textControl.outlineColor = options.outlineColor || "black";
         textControl.lineSpacing = options.lineSpacing || '0px';
@@ -201,7 +201,7 @@ export default class UI {
         textControl.textHorizontalAlignment = (typeof options.horizontalAlignment !== 'undefined') ? options.horizontalAlignment : BABYLON.GUI.Control.HORIZONTAL_ALIGNMENT_CENTER;
         textControl.textVerticalAlignment = (typeof options.verticalAlignment !== 'undefined') ? options.verticalAlignment : BABYLON.GUI.Control.VERTICAL_ALIGNMENT_TOP;
         textControl.textWrapping = options.wrapping || true;
-        textControl.fontFamily = options.fontFamily || "'Tomorrow',sans-serif";
+        textControl.fontFamily = "'Tomorrow', sans-serif";
         this.menuTexture.addControl(textControl);
         this.add(textControl);
 
@@ -238,9 +238,9 @@ export default class UI {
 
     displayMessage(scamhitted, signal) {
         GAME.pause();
-        var rect1 = new BABYLON.GUI.Rectangle();
-        var label0 = new BABYLON.GUI.TextBlock("Educational Message", scamhitted);
-        var hit = new BABYLON.GUI.TextBlock("Signal", signal);
+        let rect1 = new BABYLON.GUI.Rectangle();
+        let label0 = new BABYLON.GUI.TextBlock("Educational Message", scamhitted);
+        let hit = new BABYLON.GUI.TextBlock("Signal", signal);
         hit.color = (signal == 'HIT IT') ? 'red' : 'green';
         if (GAME.isMobile()) {
             rect1.width = 1;
