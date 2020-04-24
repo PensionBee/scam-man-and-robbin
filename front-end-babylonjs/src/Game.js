@@ -233,7 +233,9 @@ export default class Game {
         this.engine.runRenderLoop(() => {
             window.addEventListener("resize", () => {
                 this.engine.resize();
-                window.location.reload();
+                if(!this.isMobile() && !this.isPad()){
+                    window.location.reload();
+                }
             });
             this.currentLevel.scene.render();
         });
