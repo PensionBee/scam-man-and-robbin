@@ -1,45 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Scam Man & Robbins</title>
 
-        <style>
-            html, body {
-                overflow: hidden;
-                width: 100%;
-                height: 100%;
-                margin: 0;
-                padding: 0;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="user-scalable=no, width=device-width, initial-scale=1.0, viewport-fit=cover maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
-            body {
-                background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-position: center; 
-                background-color: #636e72;
-            }
+    <!-- OG Tags -->
+    <meta property="og:title" content="Scam Man & Robbin'" />
+    <meta property="og:url" content="https://scam-man-and-robbin.github.io/" />
+    <meta property="og:image" content="https://scam-man-and-robbin.github.io/assets/scenes/scamman_logo.png" />
+    <meta property="og:description" content="Here's my Scam Man and Robbin' score..." />
+    <meta property="og:site_name" content="Scam Man & Robbin'">
+    <meta property="og:type" content="website">
 
-            #renderCanvas {
-                width: 100%;
-                height: 100%;
-                touch-action: none;
-            }
-        </style>
+    <title>Scam Man & Robbin'</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="assets/css/rotate.css" rel="stylesheet">
+    <link href="assets/css/tomorrow.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/css/modal.css" rel="stylesheet">
+    <link href="assets/css/devices.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/js/jssocials-1.4.0/jssocials.css" />
+    <link rel="stylesheet" type="text/css" href="assets/js/jssocials-1.4.0/jssocials-theme-flat.css" />
+    <style>
+        html,
+        body {
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            position: fixed;
+            font-family: 'Tomorrow',sans-serif;
+        }
 
-        <script src="options.js"></script>  
-        
-        <script src="build/vendor.js"></script>
-        <script src="build/app.js"></script>
-        <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+        body {
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-color: #636e72;
+        }
 
-    </head>
+        #renderCanvas, #renderCanvasDesktop {
+            margin: auto !important;
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+        }
+    </style>
 
-    <body>
-        <!-- Main game canvas -->
-        <canvas id="renderCanvas" touch-action="none"></canvas>
-    </body>
+    <script src="options.js?v4"></script>
+
+    <script src="build/vendor.js"></script>
+    <script src="build/app.js?v4"></script>
+    <script src="https://cdn.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jssocials-1.4.0/jssocials.min.js"></script>
+    <script src="assets/js/modal.js"></script>
+</head>
+
+<body>
+    <div id="turn">
+        <div id="overlay">
+            <span>Please rotate your screen to play...</span>
+        </div>
+    </div>
+    <div class="device device-iphone-8" align = "center">
+        <div class="device-frame">
+            <canvas id="renderCanvasDesktop" touch-action="none"></canvas>
+        </div>
+        <div class="device-stripe"></div>
+        <!-- <div class="device-header"></div> -->
+        <div class="device-sensors"></div>
+        <!-- <div class="device-btns"></div> -->
+        <!-- <div class="device-power"></div> -->
+    </div>
+    <!-- Main game canvas -->
+    <canvas id="renderCanvas" touch-action="none"></canvas>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <button id="btnClose" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="modal-body text-center">
+                <p><strong>Share your score </strong></p>
+                <div id="share"></div>
+            </div>
+        </div>
+
+    </div>
+</body>
+<script>
+</script>
 
 </html>

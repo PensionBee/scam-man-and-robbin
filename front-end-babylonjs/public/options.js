@@ -26,17 +26,17 @@ window.initialGameOptions = {
 
     // Player Options
     'player': {
-        'defaultSpeed': 3,
-        'gravity': -9,
-        'jumpForce': 50,
-        'jumpMaxAltitude': 5,
-        'lives': 3
+        'defaultSpeed': 20,
+        'increaseSpeedRatio': 0.5,
+        'lives': 3,
+        'scamStartAfter' : 5000, // 5 seconds,
+        'godMode': false
     },
 
-    'level': {
-        'tileWidth': 5,
-        'smallTileWidth': 5,
-        'hazardWidth': 2,
-    },
+    'gameLength' : 270, // in seconds
+    'messageReadTime': 6, // in seconds
+    'maxLifetimeAllowance' : 1055000,
+    'tutorialLength' : 30, // in seconds
+    'learnMoreLink' : 'https://scam-man.com'
 
 };

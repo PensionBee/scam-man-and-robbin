@@ -1,0 +1,137 @@
+#turn{ display:none; }
+/* @media only screen
+    and (max-width: 1024px)
+    and (orientation:landscape){
+    #turn{ display:block; }
+    #renderCanvas{ display:none; }
+}
+@media only screen
+    and (max-width: 1024px)
+    and (orientation:portrait){
+    #turn{ display:none; }
+    #renderCanvas{ display:block; }
+} */
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: #000;
+    filter: alpha(opacity=50);
+    -moz-opacity: 0.5;
+    opacity: 0.5;    
+
+}
+
+#overlay span {
+    font-size: x-large;
+    padding: 5px;
+    border-radius: 5px;
+    color: #000;
+    background-color: #fff;
+    position:relative;
+    top:50%;
+}
+
+#renderCanvas{ 
+    width: 100%;
+}
+
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+  
+    #renderCanvas{ 
+        width: 100% !important;
+    }
+    #turn{ display:none; }
+    #renderCanvas{ display:block; }
+    
+  }
+  
+  /* 
+    ##Device = Laptops, Desktops
+    ##Screen = B/w 1025px to 1280px
+  */
+  
+  @media (min-width: 1025px) and (max-width: 1280px) {
+    
+    #renderCanvas{ 
+        width: 100% !important;
+    }
+    #turn{ display:none; }
+    #renderCanvas{ display:block; }
+    
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (portrait)
+    ##Screen = B/w 768px to 1024px
+  */
+  
+  @media (min-width: 768px) and (max-width: 1024px) {
+    
+    #renderCanvas{ 
+        width: 100% !important;
+    }
+    #turn{ display:none; }
+    #renderCanvas{ display:block; }
+    
+  }
+  
+  /* 
+    ##Device = Tablets, Ipads (landscape)
+    ##Screen = B/w 768px to 1024px
+  */
+  
+  @media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    
+    #turn{ display:block; }
+    .device {display: none !important;}
+    #renderCanvas{ display:none; }
+    
+  }
+  
+  /* 
+    ##Device = Low Resolution Tablets, Mobiles (Landscape)
+    ##Screen = B/w 481px to 767px
+  */
+  
+  @media (min-width: 481px) and (max-width: 767px) {
+    
+    #turn{ display:block; }
+    .device {display: none !important; }
+    #renderCanvas{ display:none; }
+    
+  }
+  
+  /* 
+    ##Device = Most of the Smartphones Mobiles (Portrait)
+    ##Screen = B/w 320px to 479px
+  */
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    
+    #turn{ display:none; }
+    #renderCanvas{ display:block; }
+    .device > .device-frame > #renderCanvas {
+      visibility: visible;
+      width: 100% !important;
+      height: 100% !important;
+    }
+    .device, .device-frame{
+        visibility: hidden;
+        width: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+  }
